@@ -1,0 +1,788 @@
+body.search {
+
+  //noinspection SassScssResolvedByNameOnly
+  main {
+    margin: 0;
+
+    .map, .oops {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 35%;
+      border-right: 1px solid $gray-lighter;
+
+      @media (max-width: $screen-sm) {
+        width: 0;
+      }
+
+      #map-canvas {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .oops{
+      display: table;
+      height: 100%;
+      z-index: 2;
+
+      @media (max-width: $screen-sm) {
+          height: auto;
+          top: 450px;
+          width: 100%;
+      }
+
+      .oops-cell{
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 10%;
+        margin: 0 auto;
+        text-align: center;
+
+        img{
+          position: relative;
+          left: -3px;
+        }
+
+        p{
+          margin-top: 40px;
+          padding-top: 20px;
+          position: relative;
+          font-family: $font-family-avenir;
+
+          &:before{
+            display: block;
+            content: '';
+            height: 2px;
+            background: #444444;
+            width: 50px;
+            position: absolute;
+            left: 50%;
+            margin-left: -25px;
+            top: -10px;
+          }
+        }
+      }
+    }
+
+
+    .map {
+      @media (max-width: $screen-sm){
+        display: none;
+      }
+
+      .title {
+        margin-top: 0;
+      }
+
+      .crop {
+        width: 100px;
+        overflow: hidden;
+        float: left;
+        margin-right: 15px;
+
+        img {
+          height: 100px;
+        }
+      }
+    }
+
+    .map,
+    .search{
+      height: calc(100% - 60px);
+      top: 60px;
+      padding: 0;
+
+      @media (max-width: $screen-sm){
+        width: 100%;
+      }
+    }
+
+    .search {
+      margin: 0;
+      width: 65%;
+      position: absolute;
+      overflow-y: scroll;
+      right: 0;
+      bottom: 0;
+      box-shadow: -5px 0 19px -9px rgba(0,0,0,0.75);
+
+      @media (max-width: $screen-sm) {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: 100%;
+        min-height: calc(100vh - 95px);
+      }
+
+      @media (max-width: $screen-600) {
+        width: 100%;
+      }
+
+      .form {
+        @include make-xs-column(12, 0);
+        border-top: 1px solid $gray-lighter;
+        background-color: $content-bg;
+        @include make-row(0);
+        margin-bottom: 1em;
+        margin-top: 0;
+
+        .widget-wrapper{
+          display: table;
+          padding-bottom: 20px;
+          width: 100%;
+        }
+
+        .widget-label {
+          text-transform: uppercase;
+          width: 25%;
+          display: table-cell;
+          vertical-align: middle;
+          float: none;
+          font-weight: 400;
+          text-transform: initial;
+          font-size: 14px;
+          color: $text-color;
+          font-family: $font-family-avenir;
+          padding-right: 10px;
+
+          @media (max-width: $screen-sm) {
+            display: none;
+          }
+
+          span{
+            color: #828282;
+            font-size: $font-size-small;
+            font-family: $font-family-sans-serif;
+          }
+        }
+
+
+        form > div {
+          @include clearfix();
+          padding: 10px 15px;
+          border-bottom: 1px solid $gray-lighter;
+          display: table;
+          width: 100%;
+          border: 0;
+        }
+
+
+        .location {
+          .widget-wrapper{
+            border-bottom: 1px solid $gray-lighter;
+          }
+
+          .widget {
+            @extend .input-group;
+            width: 100%;
+
+            @media (max-width: $screen-sm){
+              display: block;
+              clear: both;
+              float: left;
+              position: static;
+            }
+
+            #search_moveInDate {
+              border-left:0;
+              padding-left: 35px;
+            }
+
+            #search_search {
+              @extend .btn-primary;
+            }
+
+            i {
+              @extend .fa;
+              @extend .fa-calendar;
+              @extend .calendar;
+              position: absolute;
+              padding-left: 8px;
+              font-size: 17px;
+              z-index: 10;
+              right: 54%;
+              pointer-events: none;
+
+              top: 31px;
+              color: #119da2;
+              z-index: 10;
+              left: 3px;
+
+              @media (max-width: $screen-sm){
+                left: 15px;
+              }
+            }
+
+            .input-group{
+              display: table-cell;
+              padding-right: 20px;
+
+              @media (max-width: $screen-sm){
+                width: 50%;
+                float: left;
+
+                &:nth-child(1){
+                  padding: 0;
+                  padding-right: 10px;
+                }
+                &:nth-child(2){
+                  padding: 0;
+                  padding-left: 10px;
+                }
+              }
+            }
+
+            label{
+              font-weight: 500;
+              position: relative;
+              float: left;
+              display: block;
+              font-size: 10px;
+              color: #828282;
+
+              .form-control{
+                display: block;
+                border-radius: 3px !important;
+
+                &:last-child{
+                  border-radius: 3px !important;
+                }
+              }
+            }
+
+            .submit{
+              display: table-cell;
+              vertical-align: bottom;
+
+              @media (max-width: $screen-sm){
+                clear: both;
+                display: block;
+                float: none;
+                position: absolute;
+                bottom: 15px;
+                width: calc(100% - 30px);
+                margin: 0;
+
+                button{
+                  width: 100%;
+                }
+              }
+            }
+
+            .form-control{
+              background: #FFFFFF;
+              border: 1px solid $gray;
+              height: 40px;
+              font-size: 14px;
+
+              &#search_moveInDate{
+                border: 1px solid $gray;
+                border-radius: 3px;
+              }
+            }
+
+            #search_location {
+
+            }
+
+            #search_moveInDate {
+
+              border-left: 0;
+              padding-left: 35px;
+            }
+
+            #search_search {
+              @extend .btn-primary;
+              height: 40px;
+            }
+
+          }
+        }
+        .rest-hidden {
+          @include hidden;
+        }
+
+        .size {
+          border-bottom: 1px solid $gray;
+          width: 100%;
+
+          @media (max-width: $screen-sm){
+            padding-bottom: 50px;
+            padding-top: 0;
+          }
+
+          i {
+            @extend .fa;
+            @extend .fa-question-circle;
+            color: $brand-primary;
+
+          }
+
+          .popover {
+            .popover-title {
+              color: #5f6a7d;
+              background-color: #cbe3eb;
+              font-size: 15px;
+            }
+          }
+
+          .widget {
+            text-align: justify;
+            display: table-cell;
+            vertical-align: middle;
+            float: none;
+            width: 75%;
+
+            .radio {
+              display: inline-block;
+              margin-right: 30px;
+
+              label {
+                font-weight: $headings-font-weight;
+              }
+            }
+
+            .radio{
+              &:nth-child(2){
+                margin-right: 0;
+              }
+            }
+            .size-button-wrapper{
+              display: table;
+              width: 100%;
+              table-layout: fixed;
+            }
+
+
+            button {
+              @extend .btn;
+              font-weight: $headings-font-weight;
+              text-align: center;
+              padding: 0;
+              width: 32%;
+              outline: none;
+
+              @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+              @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+              float: none;
+
+              @include background(linear-gradient(-180deg, #FCFCFC 46%, #E4E4E4 100%));
+              border: 1px solid $gray;
+              border-radius: 3px;
+              color: #000000;
+              margin-right: 1.5%;
+              display: table-cell;
+
+              &:last-of-type{
+                margin-right: 0;
+              }
+
+              @media (min-width: $screen-sm) {
+                float: none;
+
+                >div {
+                  pointer-events: none;
+                }
+
+                .small {
+                  position: relative;
+                  left: 50%;
+                  margin-left: -18px;
+                  width: 37px;
+                  height: 45px;
+                  background: url("/storage/images/size5x5.png") 0 5px;
+                }
+
+                .medium {
+                  position: relative;
+                  left: 50%;
+                  margin-left: -30px;
+                  width: 60px;
+                  height: 45px;
+                  background: url("/storage/images/size10x10.png") 5px 0;
+                }
+
+                .large {
+                  position: relative;
+                  left: 50%;
+                  margin-left: -31px;
+                  width: 62px;
+                  height: 45px;
+                  background: url("/storage/images/size10x20.png") -2px -7px;;
+                }
+              }
+            }
+
+            button:focus, button:active, button:hover {
+              outline: none;
+            }
+
+            button.selected {
+              box-shadow: inset -8px 8px 9px -9px rgba(0,0,0,0.75);
+            }
+          }
+        }
+      }
+
+      .list {
+        padding-right:15px;
+        padding-left:15px;
+        margin-bottom: 30px;
+        background: $gray-lightest;
+
+        @media (max-width: $screen-sm){
+            &.0-facilities{
+            padding-bottom: 200px;
+          }
+        }
+
+
+        h1 {
+          color: $gray;
+          display: inline-block;
+          vertical-align: middle;
+          margin: 10px 2px;
+
+          font-weight: 400;
+          font-size: 22px;
+          color: $text-color;
+          margin-bottom: 20px;
+          width: 50%;
+          line-height: 1.4;
+
+          @media (max-width: $screen-sm){
+            width: 100%;
+            clear: both;
+            float: none;
+            text-align: center;
+          }
+        }
+
+        .sort {
+          float: right;
+          @include clearfix;
+
+          label {
+            @extend .form-inline;
+            margin: 0 2px;
+
+            select {
+              @extend .form-control;
+            }
+          }
+
+          @media (max-width: $screen-sm){
+            width: 100%;
+            clear: both;
+            float: none;
+            margin: 0 auto 15px auto;
+
+            label{
+              width: 100%;
+              margin: 0 auto;
+            }
+          }
+        }
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+
+        .facility {
+          @extend .row;
+          background: #FFFFFF;
+          border: 1px solid $gray;
+          box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
+          border-radius: 3px;
+          margin: 0px 1px 20px 1px;
+          padding: 0;
+
+          .facility-wrapper{
+            padding: 20px;
+            clear: both;
+            float: left;
+            display: block;
+
+            @media (max-width: $screen-sm){
+              padding: 12px;
+            }
+          }
+
+          .more{
+            clear: both;
+            display: block;
+            float: left;
+            width: 100%;
+
+            a{
+              clear: both;
+              display: block;
+              float: left;
+              width: 100%;
+              background: #FAFAFA;
+              padding: 10px;
+              border-top: 1px solid #ECECEC;
+              text-align: center;
+              cursor: pointer;
+            }
+          }
+
+          .image {
+            @include make-md-column(2, 0);
+            @include make-sm-column(3, 0);
+            @include make-xs-column(4, 0);
+
+            .crop {
+              width: 200px;
+              height: 200px;
+              border: 1px solid $gray-lighter;
+              background-color: $gray-lighter;
+              overflow: hidden;
+
+              @media (max-width: $screen-xl) {
+                width: 150px;
+                height: 150px;
+              }
+
+              @media (max-width: $screen-lg) {
+                width: 125px;
+                height: 125px;
+              }
+
+              @media (max-width: $screen-md) {
+                width: 110px;
+                height: 110px;
+              }
+
+              @media (max-width: $screen-sm) {
+                width: 100px;
+                height: 100px;
+              }
+
+              @media (max-width: $screen-xxs) {
+                width: 75px;
+                height: 75px;
+              }
+
+              img {
+                width: auto;
+                height: 200px;
+
+                @media (max-width: $screen-xl) {
+                  width: auto;
+                  height: 150px;
+                }
+
+                @media (max-width: $screen-lg) {
+                  width: auto;
+                  height: 125px;
+                }
+
+                @media (max-width: $screen-md) {
+                  width: auto;
+                  height: 110px;
+                }
+
+                @media (max-width: $screen-sm) {
+                  width: 75px;
+                  height: 75px;
+                }
+
+                @media (max-width: $screen-xxs) {
+                  width: auto;
+                  height: 75px;
+                }
+              }
+            }
+          }
+
+          .details {
+            @include make-md-column(10, 0);
+            @include make-sm-column(9, 0);
+            @include make-xs-column(8, 0);
+            padding-left: 0;
+
+            h2 {
+              margin-top: 0;
+            }
+
+            .details-wrapper{
+              float: left;
+              width: 75%;
+
+              @media (max-width: $screen-sm){
+                width: 100%;
+              }
+
+              h2{
+                font-size: 20px;
+                font-weight: 400;
+                font-family: $font-family-sans-serif;
+              }
+
+              p{
+                font-size: $font-size-small;
+                margin-bottom: 3px;
+              }
+            }
+
+            .info-links {
+              .get-directions {
+                a {
+                  i {
+                    @extend .fa-car;
+                    @extend .fa;
+                  }
+                }
+              }
+
+              .call-now {
+                padding-left: 10px;
+                cursor: pointer;
+                cursor: hand;
+                display: none;
+
+                a {
+                  i {
+                    @extend .fa-phone;
+                    @extend .fa;
+                  }
+                }
+              }
+            }
+
+            .rating {
+              float: right;
+              width: 25%;
+              text-align: right;
+              .reviews {
+                text-transform: uppercase;
+                font-size: $font-size-small;
+              }
+
+              .amex-accepted-logo{
+                margin-top: 20px;
+              }
+
+              @media (max-width: $screen-sm) {
+                @include  pull-right();
+                width: 100%;
+                float: left;
+                text-align: left;
+                margin: 5px auto;
+              }
+            }
+          }
+
+          .stack {
+            @include make-xs-column(12, 0);
+            padding: 0;
+            margin-top: $line-height-computed;
+            font-weight: $inventory-item-font-weight;
+            font-size: $font-size-small;
+
+            @media (max-width: $screen-sm){
+              width: 100%;
+            }
+
+            li:first-child {
+              border-top: 1px solid $gray-lighter;
+            }
+
+            .scarcity {
+              @include make-sm-column(12, 0);
+              @include make-xs-column(12, 0);
+              border-bottom: 1px solid $gray-lighter;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              color: $gray-light;
+            }
+
+            .unit {
+              @include make-sm-column(12, 0);
+              @include make-xs-column(12, 0);
+              border-bottom: 1px solid $gray-lighter;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              color: $link-color;
+
+              .description {
+                @include make-sm-column(6, 0);
+                @include make-xs-column(4, 0);
+                @include pull-left;
+              }
+
+              .price,
+              .out-of-range {
+                @include make-sm-column(6, 0);
+                @include make-xs-column(8, 0);
+                text-align: right;
+                font-size: $font-size-base;
+
+                p {
+                  @include pull-right;
+                }
+              }
+
+              .promotion {
+                @include make-sm-column(12, 0);
+                @include make-xs-column(12, 0);
+                color: $promotion-color;
+              }
+            }
+
+            .unit:hover {
+              cursor: pointer;
+              background-color: $yellow-hover-highlight;
+            }
+
+            .more {
+              @include make-sm-column(12, 0);
+              @include make-xs-column(12, 0);
+              padding-top: 10px;
+              padding-bottom: 10px;
+              text-align: center;
+              font-weight: normal;
+            }
+          }
+        }
+
+        .show-more {
+          @include make-sm-column(12, 0);
+          @include make-xs-column(12, 0);
+          margin-top: 10px;
+          margin-bottom: 25px;
+          text-align: center;
+
+          button {
+            @extend .btn-primary;
+            width: 100%;
+          }
+
+          button:focus, button:active { outline: none; }
+
+        }
+
+        #custom-content {
+          @include clearfix();
+          float: left;
+          width: 100%;
+          padding: 0;
+
+          article {
+            background: #FFFFFF;
+            padding: 20px;
+            border: 1px solid $gray;
+            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
+            border-radius: 3px;
+            margin: 0px 1px 20px 1px;
+          }
+        }
+      }
+    }
+  }
+}

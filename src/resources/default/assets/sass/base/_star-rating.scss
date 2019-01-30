@@ -1,0 +1,86 @@
+//noinspection SassScssResolvedByNameOnly
+body {
+  main {
+    .rating-widget {
+      cursor:pointer;
+
+      .star-base {
+        padding:0;
+        margin:0;
+        display:inline-block;
+        font-size: 0;
+        white-space:nowrap;
+        text-align:left;
+        height:38px;
+      }
+
+      .star {
+        @extend .star-base;
+        width:42px;
+      }
+
+      .star-icon {
+        @extend .star-base;
+        cursor:pointer;
+      }
+
+      .star-icon-half {
+        @extend .star-icon;
+        width:20px;
+      }
+
+      .star-left {
+        @extend .star-icon-half;
+        background: url("/storage/images/star.png") no-repeat 0 0;
+      }
+
+      .star-right {
+        @extend .star-icon-half;
+        background: url("/storage/images/star.png") no-repeat -20px 0;
+      }
+
+      .star-left.hover {
+        background: url("/storage/images/star.png") no-repeat 0 -77px;
+      }
+
+      .star-right.hover {
+        background: url("/storage/images/star.png") no-repeat -20px -77px;
+      }
+
+      .star-left.active {
+        background: url("/storage/images/star.png") no-repeat 0 -38px;
+      }
+
+      .star-right.active {
+        background: url("/storage/images/star.png") no-repeat -20px -38px;
+      }
+    }
+
+    .rating-widget.small {
+
+      .star-base {
+        height:23px;
+      }
+
+      .star {
+        @extend .star-base;
+        width:26px;
+      }
+
+      .star-icon {
+        @extend .star-base;
+        cursor:pointer;
+        width:24px;
+        background: url("/storage/images/star-small.png") no-repeat 0 0;
+      }
+
+      .star-icon.hover {
+        background: url("/storage/images/star-small.png") no-repeat 0 -46px;
+      }
+
+      .star-icon.active {
+        background: url("/storage/images/star-small.png") no-repeat 0 -23px;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import "../vendor/font-awesome/font-awesome";
+@import "font-awesome-map";
+
+/**
+ * Placeholder for styling of elements containing FontAwesome icons
+ */
+%fa-icon {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Include a Font Awesome icon
+ *
+ * Example usage:
+ *   .element {
+ *     @include fa-ion(star)
+ *   }
+ */
+@mixin fa-icon($name, $rotation: 0) {
+  @extend %fa-icon;
+  &:before {
+    //content: $fa-var-#{$name};
+    content: map-get($fa-var-map, $name);
+  }
+
+  @if $rotation == 90 {
+    @include fa-icon-rotate(90deg, 1);
+  } @else if $rotation == 180 {
+    @include fa-icon-rotate(180deg, 2);
+  } @else if $rotation == 270 {
+    @include fa-icon-rotate(270deg, 3);
+  }
+}

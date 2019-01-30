@@ -1,0 +1,59 @@
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #333;
+}
+
+header iframe,
+header footer iframe {
+  margin-left: -5px;
+}
+
+header .powered-header-text {
+  font-size: 14px;
+  text-align: right;
+}
+
+header h1.header-item {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+header h1.header-item:last-child {
+  line-height: 0.667rem;
+}
+
+header a {
+  color: #333;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+header.movers {
+  margin: 32px 0 14px 0;
+  padding: .5em 1em .667em;
+  background: #fff;
+  clear: both;
+  border-bottom: 1px solid #ddd;
+}
+
+header p {
+  margin: 0;
+  font-weight: 400;
+}
+
+header p:first-child {
+  font-size: 28px;
+}
+
+.container {
+  width: 1000px;
+}
+

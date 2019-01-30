@@ -1,0 +1,153 @@
+fieldset.unit-sizes .controls {
+  position: relative;
+  z-index: 1002;
+  padding-right: 0.667em;
+  margin-right: 0.5em;
+  background: url(/storage/images/gray-arrow.png) right no-repeat;
+}
+
+#how-much-label p {
+  margin: 1.5em 0 0 3em;
+  font-weight: bold;
+  color: #444;
+}
+
+#how-much-label p span {
+  margin-left: 0.5em;
+  color: #999;
+  font-size: 0.83em;
+  font-weight: normal;
+}
+
+fieldset.unit-sizes label {
+  clear: right;
+  cursor: pointer;
+  margin: 0.2em 0;
+  height: 50px;
+}
+
+fieldset.unit-sizes label span.unit-img {
+  height: 50px;
+  float: right;
+  background-repeat: no-repeat;
+  background-position: left;
+  display: block;
+}
+
+fieldset.unit-sizes label#size25 span.unit-img {
+  width: 37px;
+  background-image: url(/storage/images/size-guide/size5x5.png);
+}
+
+fieldset.unit-sizes label#size50 span.unit-img {
+  width: 46px;
+  background-image: url(/storage/images/size-guide/size5x10.png);
+}
+
+fieldset.unit-sizes label#size75 span.unit-img {
+  width: 53px;
+  background-image: url(/storage/images/size-guide/size5x15.png);
+}
+
+fieldset.unit-sizes label#size100 span.unit-img {
+  width: 53px;
+  background-image: url(/storage/images/size-guide/size10x10.png);
+}
+
+fieldset.unit-sizes label#size150 span.unit-img {
+  width: 61px;
+  background-image: url(/storage/images/size-guide/size10x15.png);
+}
+
+fieldset.unit-sizes label#size200 span.unit-img {
+  width: 69px;
+  background-image: url(/storage/images/size-guide/size10x20.png);
+}
+
+fieldset.unit-sizes label#size250 span.unit-img {
+  width: 69px;
+}
+
+fieldset.unit-sizes label#size300 span.unit-img {
+  width: 69px;
+  background-image: url(/storage/images/size-guide/size10x30.png);
+}
+
+fieldset.unit-sizes label#size350 span.unit-img {
+  width: 69px;
+}
+
+.sizeguide {
+  width: 364px;
+  display: block;
+  text-align: left;
+  position: absolute;
+  color: #494949;
+  font-size: 13px;
+  z-index: 1100;
+  display: none;
+  margin: -55px 0 0 230px;
+}
+
+.sizeguide .top {
+  display: block;
+  background: url(/storage/images/sparefoot/sizeguidebod.png);
+  min-height: 200px;
+  padding-top: 26px;
+  padding-left: 56px;
+  padding-bottom: 5px;
+  padding-right: 56px;
+}
+
+.sizeguide .top span {
+  display: block;
+  margin: 0.5em 0 0.5em -1em;
+}
+
+#search-bar .sizeguide .top {
+  background: url(/storage/images/sparefoot/sizeguidebod-right.png);
+}
+
+.sizeguidebot {
+  background: url(/storage/images/sparefoot/sizeguidebot.png);
+  width: 364px;
+  height: 32px;
+  display: block;
+  position: absolute;
+  margin-top: -2px;
+  clear: right;
+  z-index: -1;
+}
+
+.sizeguide span.sizeguide-title {
+  font-weight: bold;
+  font-size: 20px;
+  color: #000;
+  margin-left: -15px;
+  margin-top: 10px;
+}
+
+.sizeguide img {
+  float: right;
+  position: relative;
+  top: 10px;
+  right: -15px;
+  bottom: 5px;
+}
+
+label:hover span.sizeguide {
+  display: block;
+}
+
+label:hover span.sizeguide:hover {
+  visibility: hidden;
+}
+
+#clear-sqft, #clear-amenities {
+  color: #428bca;
+  cursor: pointer;
+}
+
+#clear-sqft-input, #clear-length-input, #clear-amenities-input {
+  display:none;
+}

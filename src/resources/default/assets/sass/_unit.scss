@@ -1,0 +1,127 @@
+#unit-page.facilityImagesPerfectCoverage-variation1 #slideshow .carousel-inner > .item > img{
+  cursor:pointer;
+  height:500px;
+  left:50%;
+  margin-left:-400px;
+  max-height:500px;
+  max-width:800px;
+  position:relative;
+  top:-50px;
+  width:800px;
+}
+#unit-page.facilityImagesPerfectCoverage-variation1 #slideshow{
+  height:400px;
+  margin-bottom:1em;
+  overflow:hidden;
+}
+#unit-page.facilityImagesPerfectCoverage-variation1 #slideshow .carousel-control{
+  width:8%;
+}
+#unit-page.facilityImagesPerfectCoverage-variation1 #slideshow .carousel-control .icon-next{
+  right:auto;
+}
+#unit-page.facilityImagesPerfectCoverage-variation1 #slideshow-footer{
+  color:#999;
+  font-size:12px;
+  padding:0 10px 20px 0;
+  text-align:right;
+}
+#unit-page.facilityImagesPerfectCoverage-variation1 #modal-slideshow-expand .modal-dialog{
+  width:800px;
+  max-width:96%;
+}
+#unit-page.facilityImagesPerfectCoverage-variation1 #modal-slideshow-expand .modal-body{
+  padding:2%;
+  text-align:center;
+}
+#unit-page.facilityImagesPerfectCoverage-variation1 #modal-slideshow-expand .modal-header .close{
+  margin-top:-10px;
+}
+/* !UNIT PAGE */
+/*-----------------------------------------------------------*/
+
+.listing-unit-wrapper img {
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.listing-unit-wrapper .listing-unit-pricing {
+  width: 35%;
+  float: left;
+  background: 0;
+  color: #999;
+  text-align: center;
+  padding-top: 20px;
+}
+.listing-unit-wrapper .listing-unit-pricing .price {
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+}
+.listing-unit-wrapper .listing-unit-amenities {
+  width: 35%;
+  float: left;
+  margin: 0 5px 10px 10px;
+}
+.listing-unit-wrapper .listing-unit-amenities ul {
+  padding: 0;
+  list-style-type: none;
+}
+.listing-unit-wrapper #select_other_unit {
+  padding: .5em;
+  clear: both;
+}
+#units .listing {
+  border-top: 1px solid #eee;
+  padding-left: 1em;
+  background: #fff ;
+}
+#units .listing img {
+  float: left;
+  margin: 10px 10px 10px 20px;
+}
+#units .listing-unit-details {
+  margin: 0;
+  padding: 1em 0 10px 100px;
+}
+#units .listing-unit-amenities {
+  width: 40%;
+  float: left;
+}
+#units .listing-unit-amenities div {
+  float: left;
+  margin: 0 10px;
+  width: auto;
+}
+#units .listing-unit-pricing {
+  width: 25%;
+  float: left;
+  color: #999;
+  text-align: center;
+}
+
+#unit-page #map-container,
+#unit-page #map-canvas,
+#unit-page #streetview-container,
+#unit-page #streetview-canvas{
+  height:300px;
+}
+#credit-card-number {
+  width: 50%;
+  display: inline-block;
+}
+#credit-card-security-code {
+  width: 20%;
+  display: inline-block;
+}
+#cc-logos {
+  margin: 0 0 0 10px;
+}
+#security-code-image {
+  margin: 0 0 0 10px;
+}
+
+.radio input[type="radio"], .checkbox input[type="checkbox"] {
+  position: relative;
+  margin-left: 6px;
+}

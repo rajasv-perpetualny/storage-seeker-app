@@ -1,0 +1,288 @@
+@import "../../../aaa/assets/sass/mixings";
+/* !SEARCH */
+/*-----------------------------------------------------------*/
+#search-results-container #map-container {
+  width: 100%;
+  display: none;
+  position: relative;
+  height: 15em;
+  margin-top: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: url('/storage/images/map-markers/maps-pin--blue.png');
+}
+
+#search-results-container #map-canvas {
+  height: 15em;
+}
+
+#filter-search-button {
+  margin: 1em auto 0 auto;
+  max-width: 40em;
+}
+
+#search-bar {
+  display: none;
+  padding-top: 1em;
+}
+
+#search-bar.open {
+  display: block;
+}
+
+@media (min-width: 992px) {
+  #filter-search-button {
+    display: none;
+  }
+
+  #search-bar {
+    display: block;
+    float: left;
+    width: 25%;
+  }
+
+  #update-search-button {
+    display: none;
+  }
+
+  #search-results-container {
+    float: left;
+    margin-left: 2%;
+    position:relative;
+    width: 73%;
+    background: url("/storage/images/map-markers/maps-pin--blue.png");
+  }
+}
+
+.listings-grid a {
+  text-decoration: none;
+}
+
+.listings-grid th {
+  text-align: left;
+  padding: 0.5em 1em;
+  background: #E5E6E7 url(/storage/images/results-listing-bg.gif) top repeat-x;
+  border-top: 1px #bbb solid;
+  border-bottom: 1px #bbb solid;
+  border-left: 1px #ccc solid;
+  color: #666;
+}
+
+.listings-grid th:first-child {
+  border-left:none;
+}
+
+.listings-grid td {
+  padding: 7px;
+  border-bottom: 1px #ddd solid;
+  vertical-align: top;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .listings-grid td {
+    padding: 1em;
+  }
+}
+
+.listings-grid tr.bulk-leasing {
+  background-color: #FDF6E5;
+}
+
+.listings-grid tr.bulk-leasing:hover {
+  background-color: #fdf0d1;
+}
+
+.listings-grid tr.bulk-leasing .button-2 {
+  @include linearGradient(#fe231c, #ff8d7a);
+  border-color: #FF0013;
+}
+
+.listings-grid tr.bulk-leasing .button-2:hover {
+  @include linearGradient(#fe3731, #ffad9e);
+}
+
+.listings-grid tr.stacked {
+  padding: 1em 0 1em 0;
+}
+
+.listings-grid tr.stacked td {
+  cursor: default;
+}
+
+.listings-grid tr.stacked:hover {
+  background: none;
+}
+
+.listings-grid tr.even.stacked:hover {
+  background: none;
+}
+
+.listings-grid tr.portable-storage-row td {
+  padding: 1em 0;
+  border-left: 0;
+}
+
+.listings-grid tr.portable-storage-row td img {
+  padding: 0;
+  border: 0;
+}
+
+.listings-grid tr.portable-storage-row:hover {
+  background: #fff;
+}
+
+.listings-grid td ul {
+  list-style-type: square;
+  margin-left: 4px;
+  padding-left: 10px;
+}
+
+.listings-grid td ul li {
+  color: #ccc;
+}
+
+.listings-grid td ul li span {
+  color: #333;
+}
+
+.listings-grid td.first {
+  border-left: none;
+}
+
+.listings-grid td.icon {
+  text-align: center;
+  padding-top: 2em;
+}
+
+.listings-grid tr.even {
+  background: #fbfbfb;
+}
+
+.listings-grid td.facility-title h3 {
+  margin-top: 0;
+  font-size: 1.167em;
+  line-height: 1.5em;
+}
+
+.listings-grid .price-td {
+  text-align: right;
+}
+
+.listings-grid .unitlist-td {
+  padding: 7px 0 7px 0;
+}
+
+@media (min-width: 768px) {
+  .listings-grid .unitlist-td {
+    padding: 1em 0 1em 0;
+  }
+}
+
+.listings-grid h3 a{
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .listings-grid h3 a {
+    font-size: inherit;
+  }
+}
+
+.listings-grid h3 {
+  margin-bottom: 4px;
+}
+
+@media (min-width: 768px) {
+  .listings-grid h3 {
+    margin-bottom: 10px;
+  }
+}
+
+.search-listing {
+  border-top:#ccc 1px solid;
+  position:relative;
+  color:#4f4f4f;
+  min-height:12em;
+  padding:0;
+  zoom:1;
+}
+
+.search-listing-image {
+  float:left;
+  padding:0;
+  margin-top:-1px;
+}
+
+.search-listing-image img {
+  padding:1px;
+  border:1px #ccc solid;
+}
+
+.search-listing-image p {
+  margin:0;
+  color:#777;
+}
+
+.listing-img-link {
+  position:relative;
+  margin-bottom: 0.5em;
+  padding:1px;
+  border:1px #ddd solid;
+  display:block;
+}
+
+.img-num-label {
+  position:absolute;
+  top:0;
+  left:0;
+  background:#fff;
+  color:#777;
+  padding:0 0.333em;
+}
+
+.listings-grid .stacked img {
+  padding:0;
+  border:none;
+  margin-bottom:0;
+  width: 100px;
+}
+
+.listings-grid .stacked img.search-listing-badge {
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .listings-grid .stacked img {
+    width: 165px;
+  }
+}
+
+.portable-storage-row {
+  text-align: center;
+}
+
+.portable-storage-row img:not(.tracking-pixel) {
+  width: auto;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.search-page-banner-headline {
+  margin:0.5em 1em 0 1em;
+}
+
+.content-container {
+  padding: 1em 15px;
+}
+
+tr.stacked td:first-child {
+  width: 167px;
+}
+
+.dark-link {
+  color: #333;
+}

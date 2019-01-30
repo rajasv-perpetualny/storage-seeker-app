@@ -1,0 +1,367 @@
+//noinspection SassScssResolvedByNameOnly
+body.unit {
+
+  background-color: $body-bg;
+
+   main {
+    @extend .row;
+    padding: 30px 20%;
+    margin: 0;
+    border-bottom: 1px solid $gray-lighter;
+
+    @media (max-width: $screen-lg) {
+      padding: 20px 12%;
+    }
+
+    @media (max-width: $screen-md) {
+      padding: 20px 8%;
+    }
+
+    @media (max-width: $screen-sm) {
+      padding: 20px 5%;
+    }
+
+    @media (max-width: $screen-xs) {
+      padding: 20px 5%;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 15px 0;
+      font-size: 46px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: .5px;
+
+      @media (max-width: $screen-md) {
+        padding-top: 30px;
+      }
+
+      @media (max-width: $screen-sm) {
+        font-size: 36px;
+        padding-top: 10px;
+      }
+    }
+
+    h2{
+      text-align: center;
+      letter-spacing: .25px;
+      margin-top: 5px;
+
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.3;
+
+      @media (max-width: $screen-sm) {
+        font-size: 20px;
+      }
+    }
+
+    h3 {
+      font-size: $font-size-small;
+      margin: 0;
+    }
+
+    .disclaimer {
+      margin: 30px auto;
+      max-width: $screen-sm;
+      color: $gray;
+      font-size: 10px;
+      text-align: center;
+      width: 100%;
+      @include clearfix();
+    }
+
+    .header {
+      background-color: #d9e9ee;
+      padding: 10px 15px;
+      font-size: $font-size-medium;
+      margin-bottom: 25px;
+    }
+
+    .unit-wrapper{
+      @include clearfix();
+      width: 100%;
+      display: block;
+      background: #FFFFFF;
+      border: 1px solid $gray;
+      box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
+      border-radius: 3px;
+      max-width: $screen-sm;
+      padding: 30px;
+      margin: 30px auto 0 auto;
+
+      @media (max-width: $screen-sm){
+        padding: 12px;
+        margin: 20px auto 0 auto;
+      }
+    }
+
+    .details {
+      @include make-xs-column(12, 0);
+      @include make-sm-column(6, 0);
+
+      @include pull-right;
+
+
+      .body {
+        padding-left: 30px;
+
+        @media (max-width: $screen-sm) {
+          padding: 0 0 30px 0;
+        }
+
+        p{
+          font-size: 14px;
+        }
+        .facility, .hours {
+          border-bottom: 1.5px dashed $gray;
+          padding: 0 0 12px 0;
+          margin: 0 0 12px 0;
+        }
+
+        .facility{
+          @include clearfix();
+
+          .image {
+            width: 85px;
+            float: left;
+
+            .crop {
+              border: 1px solid $gray-lighter;
+              background-color: $gray-lighter;
+              overflow: hidden;
+              height: 85px;
+              width: 85px;
+
+              img {
+                width: auto;
+                height: 85px;
+              }
+            }
+          }
+
+          .details {
+            float: left;
+            clear: right;
+            width: auto;
+            width: calc(100% - 85px);
+            padding-left: 20px;
+
+            h2 {
+              margin-top: 0;
+            }
+
+            .get-directions {
+              a {
+                i {
+                  @extend .fa-car;
+                  @extend .fa;
+                }
+              }
+            }
+
+            .rating {
+              .reviews {
+                text-transform: uppercase;
+                font-size: $font-size-small;
+              }
+
+              @media (min-width: $screen-sm) {
+                @include  pull-right();
+              }
+            }
+          }
+        }
+
+        .hours {
+          .full {
+            display: none;
+          }
+
+          .abbreviated {
+            cursor: pointer;
+
+            span {
+              white-space: nowrap;
+            }
+
+            a {
+              white-space: nowrap;
+            }
+          }
+
+          .abbreviated:hover {
+            background-color: $yellow-hover-highlight;
+          }
+        }
+
+        .unit {
+          dd {
+            margin-bottom: 12px;
+            margin-top:5px;
+            border-bottom: 1.5px dashed $gray;
+            padding-bottom: 12px;
+          }
+
+          .type {
+            font-size: 14px;
+          }
+
+          .special {
+            color: $promotion-color;
+          }
+        }
+
+        .rent {
+          @include background(linear-gradient(to bottom, #d8edf7 0%,#c1deed 100%));
+          padding: 15px;
+          margin: 12px 0 0 0;
+          overflow: hidden;
+
+          background: #FAFAFA;
+          border: 1px solid $gray;
+          border-radius: 3px;
+          @include clearfix();
+
+          >div {
+            @include clearfix;
+          }
+
+          .period {
+            display: block;
+            position: relative;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+          }
+
+          .cost {
+            display: block;
+            width: 100%;
+            color: $promotion-color;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            margin: 5px auto;
+          }
+
+          .regular {
+            text-align: center;
+            color: $gray-light;
+          }
+        }
+
+        .amex{
+          margin-bottom: 12px;
+          padding-bottom: 12px;
+          @include clearfix();
+          strong{
+            margin-left: 10px;
+          }
+
+          img{
+            margin-top: 20px;
+          }
+        }
+      }
+
+    }
+
+    .form {
+      @include make-xs-column(12, 0);
+      @include make-sm-column(6, 0);
+
+      @media (max-width: $screen-sm) {
+        padding: 0;
+      }
+
+      .header {
+        border: 1px solid $gray-lighter;
+      }
+
+      .body {
+        padding-right: 30px;
+
+        @media (max-width: $screen-sm) {
+          padding: 0;
+        }
+
+        .required-indicator {
+          text-align: right;
+          font-size: $font-size-small;
+          color: $gray-dark;
+          margin-bottom: 0;
+        }
+
+        form {
+          @extend .row;
+          margin: 0;
+
+          > div {
+            @include make-xs-column(12, 0);
+            @extend .form-group;
+            @include clearfix;
+            padding-left: 0;
+            margin: 0 0 20px 0;
+
+            @media (max-width: $screen-sm) {
+              padding: 0;
+            }
+
+            > label {
+              font-family: $font-family-avenir;
+              font-size: 14px;
+              font-weight: 500;
+            }
+
+            &.submit button {
+              width: 100%;
+            }
+
+            > .checkbox {
+              margin: 0 auto;
+
+              label {
+                font-size: 14px;
+                line-height: 20px;
+              }
+            }
+          }
+
+          > div.errors div.error {
+            @extend .alert;
+            @extend .alert-danger;
+          }
+
+          > div.valid input {
+            background: #fff url("/storage/images/checkmark.png") no-repeat right center;
+          }
+
+          .aaa {
+            display: none;
+          }
+
+          .date-input-buttons {
+            display:inline-block !important;
+            margin-left:-75px;
+          }
+
+          .ws-date {
+            padding-left: 12px;
+          }
+
+          .submit {
+            @include pull-right;
+            text-align: right;
+
+            button {
+              @extend .btn-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

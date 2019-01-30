@@ -1,0 +1,36 @@
+/* !DEFAULT INDEX */
+/*-----------------------------------------------------------*/
+.index-jumbotron {
+  background: url(/storage/images/ppc-landing-work-3-wide.jpg) top left no-repeat;
+}
+
+.container .index-jumbotron {
+  border-radius: 0;
+}
+
+.container .jumbotron,
+.container-fluid .jumbotron {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.index-jumbotron h2 {
+  color: #285e8e;
+}
+
+.index-jumbotron .form-control {
+  max-width: 30em;
+}
+
+@media (min-width: 768px) {
+  .index-jumbotron {
+    background-position-x: right;
+  }
+}
+
+@media (min-width: 992px) {
+  .index-jumbotron {
+    min-height: 18em;
+    padding-top: 4em;
+  }
+}

@@ -1,0 +1,905 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+/* !HEADER */
+
+/*-----------------------------------------------------------*/
+
+.header-container {
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdb4c',endColorstr='#ffcc00',GradientType=0);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffcc00), color-stop(1, #ffdb4c));
+  background: -moz-linear-gradient(top, #ffdb4c 0%, #fc0 100%);
+  background-color: #ffcc00;
+  border-bottom: 1px solid #cca300;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+  position: relative;
+  z-index: 1000;
+}
+
+header {
+  background: url(/images/sparefoot/hashmarks-header.png) 0 0 repeat-x;
+  text-align: left;
+  padding: 1em 0 0.5em 0;
+}
+
+.header-phone {
+  float: right;
+  margin: 0.667em 0 0 0;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.header-guarantee {
+  display: none;
+  clear: right;
+  float: right;
+  margin: 0 0 0 1.5em;
+  font-weight: normal;
+  font-size: 0.917em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+header .sparefoot-logo {
+  margin: 5px 0 0 0;
+}
+
+.aaa-header-logo {
+  margin-left: 1em;
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .header-phone {
+    font-size: 1.833em;
+    margin-top: 0;
+  }
+
+  .header-guarantee {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  header ul {
+    display: inline;
+  }
+}
+
+.block-one .badge-aaa {
+  position: absolute;
+  top: 35px;
+  left: 240px;
+}
+
+.btn-index {
+  background-color: #d54810 !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f17646", endColorstr="#d54710");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f17646), to(#d54710));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f17646), to(#d54710));
+  background-image: linear-gradient(#f17646, #d54710);
+  border-color: #d54710 #d54710 #c2420f;
+  color: #fff !important;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  font-size: 23px;
+  padding: 10px 40px;
+  margin: 15px 0 15px 0;
+}
+
+.btn-index:hover {
+  background-color: #9d4007 !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d75808", endColorstr="#9c4006");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#d75808), to(#9c4006));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d75808), to(#9c4006));
+  background-image: linear-gradient(#d75808, #9c4006);
+  border-color: #9c4006 #9c4006 #8e3a06;
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HOMEPAGE VARIATION 1 ------------------------------------------- */
+
+#index-page #main-content {
+  width: 100%;
+  height: 457px;
+  position: relative;
+}
+
+#index-page #main-content .content-container {
+  position: absolute;
+  width: 100%;
+  height: 470px;
+  top: 0;
+  left: 0;
+  background-color: #465d60;
+  background-size: cover;
+}
+
+#index-page #main-content .content-container .content {
+  max-width: 1170px;
+  margin: 80px auto 0 auto;
+  padding: 0;
+  z-index: 10;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#index-page #main-content .content h1 {
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  line-height: 35px;
+  font-size: 30px;
+}
+
+#index-page #main-content .content h2 {
+  color: #ffcc00;
+  text-align: center;
+  font-size: 18px;
+  margin: 25px 0 0 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+#index-page #main-content .content h6 {
+  text-align: center;
+  color: #ccc;
+}
+
+#index-page #main-content .content p {
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+
+#index-page #main-content .content input {
+  width: auto;
+  margin: 0 5px 0 0;
+  padding: 8px;
+  height: auto;
+  font-size: 18px;
+  border: 1px solid #ffcc00;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: inline-block;
+}
+
+#index-page #main-content .content #homepage-search-button {
+  width: auto;
+  padding: 10px 40px;
+  border: inherit;
+}
+
+#index-page #featured-in-title {
+  text-align: center;
+  background-color: #eee;
+  margin: -20px auto 0 auto;
+  padding: 7px;
+  width: 250px;
+  border-radius: 5px 5px 0px 0px;
+  position: relative;
+}
+
+#index-page #featured-in {
+  width: 100%;
+  background-color: #eee;
+  margin: -1px 0 0 0;
+  text-align: center;
+  padding: 40px 0 40px 0;
+}
+
+#index-page #featured-in a {
+  opacity: 0.50;
+  display: block;
+  margin: 7px 0 7px 0;
+}
+
+#index-page #featured-in a:hover {
+  opacity: 1;
+}
+
+#index-page #featured-in img {
+  padding: 0 10px;
+}
+
+#index-page #why-sparefoot {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  padding: 0 30px 50px 30px;
+  margin: 0 0 15px 0;
+}
+
+#index-page #why-sparefoot-content {
+  max-width: 1170px;
+  margin: auto;
+}
+
+#index-page #why-sparefoot .column {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+#index-page #why-sparefoot .column .image {
+  margin: 50px 0 0 0;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 250px;
+  height: 125px;
+}
+
+#index-page #why-sparefoot .column h4 {
+  padding: 20px 20px 0 20px;
+  color: #444;
+}
+
+#index-page #why-sparefoot .column p {
+  font-size: 11px;
+  color: #666;
+  padding: 10px 20px 0 20px;
+}
+
+#index-page #featured-cities {
+  width: 100%;
+  height: 100%;
+  background: #252525 url(/images/sparefoot/bg-featured-cities.jpg) top center repeat-x;
+  display: none;
+}
+
+#index-page #featured-cities-content {
+  max-width: 1170px;
+  margin: auto;
+  padding: 0px 0px 20px 0px;
+}
+
+#index-page #featured-cities .panel-body {
+  padding: 0px;
+  margin: 0px 0px 40px 0px;
+}
+
+#index-page #featured-cities h3 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 50px 0 0 0;
+}
+
+#index-page #featured-cities p {
+  color: #fff;
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
+
+#index-page #featured-cities a {
+  color: #ffcc00;
+  line-height: 1.8em;
+}
+
+#index-page #featured-cities .row {
+  margin: 0px 0 0 0;
+}
+
+@media screen and (min-width: 768px) {
+  #index-page #main-content .content-container {
+    background: url(/images/sparefoot/bg-storage.jpg) no-repeat center center fixed;
+    position: absolute;
+    width: 100%;
+    height: 470px;
+    top: 0;
+    left: 0;
+    background-color: #465d60;
+    background-size: cover;
+  }
+
+  #index-page #main-content .content-container .content {
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+    max-width: 800px !important;
+    padding: 30px 0 30px 0 !important;
+    margin: 53px auto 0 auto !important;
+  }
+
+  #index-page #main-content .content h1 {
+    line-height: 60px;
+    font-size: 52px;
+  }
+
+  #index-page #main-content .content h2 {
+    font-size: 25px;
+    margin: 25px 0 0 0;
+  }
+
+  #index-page #main-content .content input {
+    width: 450px;
+  }
+
+  #index-page #featured-in a {
+    opacity: 0.50;
+    display: inline;
+  }
+
+  #index-page #why-sparefoot .column {
+    width: 33%;
+  }
+
+  #index-page #featured-cities {
+    display: block;
+  }
+}
+
+/* SpareFoot.com homepage v2 Test Styles --------------- */
+
+#index-page.homepagevariation #main-content {
+  height: 620px;
+}
+
+#index-page.homepagevariation #main-content .content-container {
+  background: url(/images/sf-bg2.jpg) no-repeat center top fixed;
+  position: absolute;
+  width: 100%;
+  height: 620px;
+  background-size: initial;
+}
+
+#index-page.homepagevariation #main-content .content-container .content {
+  background-color: transparent;
+  max-width: auto;
+  padding: 30px 0 30px 0 !important;
+  margin: 110px auto 0 auto !important;
+}
+
+#index-page.homepagevariation #main-content .content h1 {
+  line-height: 75px;
+  font-size: 50px;
+  color: #000;
+}
+
+#index-page.homepagevariation #main-content .content h2 {
+  color: #333;
+}
+
+#index-page.homepagevariation .tm-mark {
+  font-size: 35px;
+  padding-left: 4px;
+}
+
+#index-page.homepagevariation #featured-in-title {
+  background-color: #15191d;
+  color: #fff;
+  margin: -41px auto 0 auto;
+  font-size: 25px;
+  padding: 13px 7px 1px 7px;
+}
+
+#index-page.homepagevariation #featured-in {
+  background-color: #15191d;
+}
+
+#index-page.homepagevariation #main-content .content h6 {
+  color: #333;
+}
+
+#index-page.homepagevariation #main-content .content input {
+  border: 1px solid #fff;
+}
+
+#index-page.homepagevariation #main-content .content #homepage-search-button {
+  margin-top: -5px;
+}
+
+#index-page.homepagevariation #trustpilot-wrapper {
+  background-color: #afccca;
+}
+
+/* END SpareFoot.com homepage v2 Test Styles ---------------------- */
+
+/* TrustPilot Full Funnel Test Styles --------------- */
+
+#trustpilot-wrapper {
+  /*background-color: #e1e5ce;*/
+  /*background-color: #91d5e0;*/
+  background-color: #9bccc8;
+  border-bottom: 1px solid #ddd;
+}
+
+#trustpilot-wrapper h4 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 25px;
+}
+
+.trustpilot-review {
+  background-color: #fff;
+  padding: 15px;
+  /*border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;*/
+  margin: 15px 0 35px 0;
+}
+
+.trustpilot-review:before {
+  content: '';
+  position: absolute;
+  bottom: 25px;
+  right: 75px;
+  width: 0;
+  height: 0;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-top: 10px solid #fff;
+  border-bottom: none;
+}
+
+.trustpilot-review p {
+  font-size: 12px;
+}
+
+.trustpilot-review .rating-stars {
+  font-size: 22px;
+  float: right;
+}
+
+.trustpilot-hero {
+  float: left;
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+}
+
+.trustpilot-hero .rating-stars {
+  display: inline;
+}
+
+.trustpilot-hero p {
+  display: inline-block;
+  margin-bottom: 35px;
+}
+
+.search-review {
+  font-size: 14px;
+  background-color: #cbe3eb;
+  margin: 0 0 15px 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 10px 10px;
+}
+
+.search-review p {
+  margin-bottom: 0;
+}
+
+.search-review .rating-stars {
+  color: #000;
+}
+
+.facility-review {
+  float: none;
+  width: auto;
+  margin: 15px 8px 5px 8px;
+}
+
+/* END TrustPilot Full Funnel Test Styles ---------------------- */
+
+/* Triple AAA Banner */
+
+.aaa-banner {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background-color: #000;
+  padding: 8px 15px;
+  overflow: hidden;
+  margin: 10px 0 10px 0;
+  color: #ffcc00;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.aaa-banner .details-here {
+  text-decoration: underline;
+  font-size: 16px;
+  padding: 0 0 0 15px;
+}
+
+/* End Triple AAA Banner Styles */
+
+.listings-grid .aaa-promo {
+  position: relative;
+  width: 35%;
+  padding: 33px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin: -27px 0px 0px 0px;
+  cursor: pointer;
+  float: right;
+}
+
+.listings-grid .aaa-promo p {
+  margin: 0;
+  line-height: 120%;
+  padding: 5px 0 3px 70px;
+  font-size: 11px;
+  text-align: center;
+  width: 156px;
+}
+
+.listings-grid .aaa-promo .aaa-banner {
+  width: auto !important;
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  background-color: transparent;
+  margin: 0;
+}
+
+.popover-content {
+  font-size: 12px;
+}
+
+.aaa-exclusive {
+  height: 60px;
+}
+
+.popover.fade.top.in {
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0px;
+}
+
+.aaa-promo2 {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 0px 0px 20px 0px;
+  padding: 20px;
+  text-align: center;
+}
+
+.aaa-promo3 {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 0px 0px 0px 0px;
+  padding: 10px;
+  text-align: center;
+  width: 260px;
+}
+
+.ui-datepicker {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+/* !CONFIRMATION PAGES */
+
+/*-----------------------------------------------------------*/
+
+#confirmation-page .promo-block-wrapper {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 10px;
+  float: left;
+  width: 100%;
+  margin: 0 0 25px 0;
+}
+
+#confirmation-page .promo-block {
+  background-color: #D7F0F8;
+  border: 1px solid #CFCFCF;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  color: #666;
+  position: relative;
+}
+
+#confirmation-page .promo-block h4 {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: normal;
+  font-size: 15px;
+  margin: 15px 0 10px 0;
+  padding: 0;
+  display: block;
+}
+
+#confirmation-page .promo-block .subtext {
+  font-size: 12px;
+  text-align: center;
+  padding: 0 20px;
+  display: block;
+}
+
+#confirmation-page .promo-block .btn-promo {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 15px 0 0 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#confirmation-page .promo-block .penske-truck {
+  position: absolute;
+  top: 7px;
+  left: 22px;
+}
+
+#confirmation-page .promo-block.penske-promotion h4 {
+  padding: 0 0 0 48px;
+}
+
+#confirmation-page .promo-block.penske-promotion .subtext {
+  padding: 4px 20px 0 20px;
+}
+
+#infobox {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 5px;
+  position: absolute;
+}
+
+#infobox img {
+  float: right;
+}
+
+/* !RATINGS */
+
+/*-----------------------------------------------------------*/
+
+.rating-stars {
+  white-space: nowrap;
+  color: #ffcc00;
+  letter-spacing: 2px;
+}
+
+.rating-stars.online {
+  color: #31708f;
+}
+
+.rating-decimals {
+  color: #e1e1e1;
+  font-size: 1.333em;
+  font-weight: bold;
+  line-height: 1.333em;
+  margin-top: .5em;
+}
+
+.slider_detail {
+  float: left;
+  font-size: 12px;
+}
+
+.slider_wrapper {
+  width: 125px;
+  height: 8px;
+  background: #cccccc;
+  background: -moz-linear-gradient(100% 100% 90deg, #cccccc, #f3f3f3);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3f3f3), to(#cccccc));
+  border: 1px solid #aaaaaa;
+  display: block;
+  float: left;
+  margin: .3em 1em 0 0;
+}
+
+.slider-yellow {
+  background: #FDD109;
+  background: -moz-linear-gradient(100% 100% 90deg, #FDD109, #e2bb09);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e2bb09), to(#FDD109));
+}
+
+.slider11of00 {
+  height: 8px;
+  width: 0px;
+  display: block;
+}
+
+.slider11of05,
+.slider11of5 {
+  height: 8px;
+  width: 12px;
+  display: block;
+}
+
+.slider11of10 {
+  height: 8px;
+  width: 25px;
+  display: block;
+}
+
+.slider11of15 {
+  height: 8px;
+  width: 38px;
+  display: block;
+}
+
+.slider11of20 {
+  height: 8px;
+  width: 50px;
+  display: block;
+}
+
+.slider11of25 {
+  height: 8px;
+  width: 64px;
+  display: block;
+}
+
+.slider11of30 {
+  height: 8px;
+  width: 77px;
+  display: block;
+}
+
+.slider11of35 {
+  height: 8px;
+  width: 90px;
+  display: block;
+}
+
+.slider11of40 {
+  height: 8px;
+  width: 102px;
+  display: block;
+}
+
+.slider11of45 {
+  height: 8px;
+  width: 116px;
+  display: block;
+}
+
+.slider11of50 {
+  height: 8px;
+  width: 125px;
+  display: block;
+}
+
+.online_reviews_description img {
+  border: none;
+}
+
+.chuck_review {
+  margin: 1em 1em 1em 0;
+}
+
+/* No Cookie Error */
+
+table {
+  width: 100%;
+}
+
+#aaa-error {
+  background-color: #efefef;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  margin: 40px auto 100px auto;
+  padding: 2em;
+  width: 450px;
+}
+
+/* HEADER */
+
+.header-container {
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdb4c',endColorstr='#ffcc00',GradientType=0);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffcc00), color-stop(1, #ffdb4c));
+  background: -moz-linear-gradient(top, #ffdb4c 0%, #fc0 100%);
+  background-color: #ffcc00;
+  border-bottom: 1px solid #cca300;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+  position: relative;
+  z-index: 1000;
+}
+
+header {
+  background: url(/storage/hashmarks-header.png) 0 0 repeat-x;
+  text-align: left;
+  padding: 1em 0 0.5em 0;
+}
+
+.header-phone {
+  float: right;
+  margin: 0.667em 0 0 0;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.header-guarantee {
+  display: none;
+  clear: right;
+  float: right;
+  margin: 0 0 0 1.5em;
+  font-weight: normal;
+  font-size: 0.917em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+header .sparefoot-logo {
+  margin: 5px 0 0 0;
+}
+
+.aaa-header-logo {
+  margin-left: 1em;
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .header-phone {
+    font-size: 1.833em;
+    margin-top: 0;
+  }
+
+  .header-guarantee {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  header ul {
+    display: inline;
+  }
+}
+
+.block-one .badge-aaa {
+  position: absolute;
+  top: 35px;
+  left: 240px;
+}
+
+.alert h3 {
+  margin-top: 0;
+}
+
+.content-container {
+  padding: 1em 15px;
+  background: #fff;
+}
+
+.container.error500,
+.container.error4xx {
+  height: 97vh;
+}
+

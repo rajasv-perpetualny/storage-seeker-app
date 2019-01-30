@@ -1,0 +1,655 @@
+body.home {
+
+  header{
+    display: none;
+  }
+
+  main {
+
+    article.page{
+      padding: 50px 0;
+    }
+
+    .find-storage-copy{
+      h3{
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+      }
+      p{
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 16px;
+        line-height: 27px;
+      }
+      i.fa{
+        color: #119da2;
+      }
+    }
+
+    .how-it-works-copy{
+      padding-top: 50px;
+      border-top: 1px solid #ECECEC;
+      h3{
+        margin-bottom: 50px;
+        margin-top: 30px;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+
+    .page-hero{
+      width: 100%;
+      height: 200px;
+      display: table;
+      background: url("/storage/images/storageseeker-bg.jpg") no-repeat center center;
+      background-size: cover;
+
+      article{
+        background: #FFFFFF;
+        background: rgba(255,255,255,0.65);
+        border-top: 1px solid #FFFFFF;
+        @include background(linear-gradient(top,  rgba(255,255,255,0.65) 65%,rgba(255,255,255,1) 100%));
+      }
+
+      .page-hero-cell{
+        background: rgba(255,255,255,0.65);
+        display: table-cell;
+        vertical-align: middle;
+        padding: 40px 0 0;
+
+        @media (max-width: $screen-sm) {
+          padding: 30px 0 0;
+        }
+      }
+
+      .home-hero-heading{
+        margin: 35px auto;
+        max-width: 768px;
+        padding: 30px;
+        position: relative;
+
+        @media (max-width: $screen-sm){
+          padding: 20px;
+        }
+
+        &:before,
+        &:after{
+          display: block;
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 1px;
+          background: black;
+          background: -webkit-gradient(linear, 0 0, 100% 0, from(rgba(0,0,0,0)), color-stop(0.5, rgba(0,0,0,0.15)), to(rgba(0,0,0,0)));
+          width: 100%;
+        }
+
+        &:before{
+          bottom: auto;
+          top: 0;
+        }
+
+        h1, h2 {
+          font-family: $font-family-avenir;
+          text-align: center;
+        }
+
+        h1{
+          font-size: 46px;
+          font-weight: 700;
+
+          @media (max-width: $screen-sm) {
+            font-size: 36px;
+          }
+        }
+
+        h2{
+          margin-top: 15px;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 1.3;
+
+          @media (max-width: $screen-sm) {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .home{
+        position: relative;
+        position: relative;
+        padding: 20px 0 30px 0;
+        margin-bottom: 30px;
+
+        &:before,
+        &:after{
+          display: block;
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 1px;
+          background: black;
+          background: -webkit-gradient(linear, 0 0, 100% 0, from(rgba(0,0,0,0)), color-stop(0.5, rgba(0,0,0,0.15)), to(rgba(0,0,0,0)));
+          width: 100%;
+        }
+
+        &:before{
+          bottom: auto;
+          top: 0;
+        }
+      }
+    }
+
+    .home-hero{
+      height: 600px;
+      height: 66vh;
+      max-height: 600px;
+
+      .home{
+        padding: 0;
+        margin: 0 auto;
+        padding-bottom: 80px;
+
+        &:before,
+        &:after{
+          display: none;
+        }
+      }
+    }
+
+
+
+    .size-guide{
+      h3{
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+      }
+      p{
+        color: #7C7C7C;
+        font-size: 16px;
+        line-height: 27px;
+      }
+      .size-guide-header{
+        display: block;
+        margin: 50px auto 0 auto;
+      }
+      table{
+        margin: 0 auto 50px auto;
+        td{
+          padding: 20px;
+        }
+      }
+    }
+
+
+    .home {
+      position: static;
+      top: 0;
+      bottom:  0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      vertical-align: middle;
+      padding-bottom: 40px;
+
+      .search {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        margin: 0 auto;
+
+        @media (max-width: $screen-600) {
+          width: 100%;
+        }
+
+        .form {
+          @include make-row(0);
+          margin-bottom: 1em;
+          margin-top: 1em;
+
+          form > div {
+            @include clearfix();
+          }
+
+          .location {
+            .widget {
+              @extend .input-group;
+              margin: 0 auto;
+              width: auto;
+              max-width: 600px;
+              border-spacing: 20px 0;
+
+              label{
+                display: table-cell;
+                vertical-align: bottom;
+                font-weight: 500;
+                position: relative;
+
+                @media (max-width: $screen-sm) {
+                  width: 100%;
+                  clear: both;
+                  margin-bottom: 20px;
+                  display: block;
+                  @include clearfix();
+
+                  .form-control:first-child,
+                  .form-control {
+                    width: 100%;
+                    clear: both;
+                    display: block;
+                  }
+                }
+
+                .form-control{
+                  display: block;
+                }
+              }
+
+              .submit{
+                display: table-cell;
+                vertical-align: bottom;
+
+                @media (max-width: $screen-sm) {
+                  width: 100%;
+                  clear: both;
+                  display: block;
+                  @include clearfix();
+
+                  button{
+                    width: 100%;
+                    clear: both;
+                    display: block;
+                  }
+                }
+              }
+
+              .form-control{
+                background: #FFFFFF;
+                border: 1px solid #444444;
+                box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.25);
+                height: 50px;
+                font-size: 16px;
+
+                &:first-child{
+                  border-radius: 3px;
+                  width: 250px;
+                }
+
+                &#search_moveInDate{
+                  border: 1px solid #444444;
+                  border-radius: 3px;
+                }
+              }
+
+              #search_location {
+
+              }
+
+              #search_moveInDate {
+
+                border-left: 0;
+                padding-left: 35px;
+              }
+
+              #search_search {
+                @extend .btn-primary;
+              }
+
+              i {
+                @extend .fa;
+                @extend .fa-calendar;
+                @extend .calendar;
+                position: absolute;
+                top: 36px;
+                padding-left: 8px;
+                font-size: 17px;
+                color: #119da2;
+                z-index: 10;
+                left: 3px;
+                right: 54%;
+                pointer-events: none;
+              }
+
+            }
+          }
+          .rest-hidden {
+            @include hidden;
+          }
+        }
+      }
+    }
+
+
+    article{
+      background: #FFFFFF;
+
+      &.reviews-container{
+        background: #FAFAFA;
+        border-top: 1px solid #ECECEC;
+        border-bottom: 1px solid #ECECEC;
+
+        h3{
+          margin-top: 50px;
+          margin-bottom: 30px;
+          font-size: 20px;
+          font-weight: 500;
+          text-align: center;
+        }
+      }
+    }
+
+
+
+
+    .value-props{
+      // @include make-row();
+      padding: 30px 0 50px 0;
+      @include clearfix();
+
+      .value-prop{
+        @include make-xs-column(12, 0);
+        @include make-sm-column(4, 0);
+        text-align: center;
+
+        @media (max-width: $screen-sm - 1px) {
+          margin-bottom: 30px;
+          padding-bottom: 30px;
+          border-bottom: 1px solid #ECECEC;
+
+          &:last-child{
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border: 0;
+          }
+        }
+
+        .circle-number{
+          height: 30px;
+          width: 30px;
+          background: #F88526;
+          border-radius: 30px;
+          text-align: center;
+          font-size: 18px;
+          line-height: 33px;
+          color: #FFFFFF;
+          font-weight: 600;
+          display: inline-block;
+          margin-right: 5px;
+        }
+
+        h3{
+          margin-top: 20px;
+          font-size: 20px;
+          font-weight: 500;
+        }
+
+        p{
+          color: #7C7C7C;
+        }
+      }
+    }
+
+
+
+    .about-storageseeker{
+      border-top: 1px solid #ECECEC;
+      padding: 50px 0;
+      p{
+        text-align: center;
+        color: #7c7c7c;
+        font-size: 16px;
+        line-height: 27px;
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+
+
+
+
+    .reviews{
+      // @include make-row();
+      padding: 50px 0;
+
+      .number-counter{
+        margin-top: -97px;
+
+        .flip-counter{
+          max-width: 600px;
+        }
+
+        h2{
+          text-align: center;
+          font-weight: 500;
+          font-size: 24px;
+        }
+      }
+
+      .review-cards{
+        margin: 100px auto 30px auto;
+        @include clearfix();
+
+        .review-card-container{
+
+          &:last-child .review-card{
+            margin-bottom: 0;
+          }
+
+          .review-card{
+            text-align: center;
+            @include make-xs-column(12, 0);
+            @include make-sm-column(4, 0);
+
+            @media (max-width: $screen-sm) {
+              margin-bottom: 75px;
+            }
+
+            .review-card-content{
+              background: #FFFFFF;
+              border: 1px solid #ECECEC;
+              box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.09);
+              border-radius: 3px;
+              width: 90%;
+              margin: 0 auto;
+              padding: 25px;
+            }
+
+            .review-img{
+              width: 70px;
+              height: 70px;
+              display: inline-block;
+              border-radius: 70px;
+              margin-top: -75px;
+            }
+            .review-stars{
+              color: #FFCC00;
+              margin: 0 auto 10px auto;
+              letter-spacing: 3px;
+              font-size: 20px;
+            }
+            p{
+              font-size: 16px;
+              color: #7C7C7C;
+              line-height: 25px;
+              font-weight: 300;
+            }
+          }
+
+          .review-author{
+            text-align: center;
+            font-family: $font-family-avenir;
+            font-size: $font-size-small;
+            color: #7C7C7C;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+
+
+    //colors
+    $color_cerulean_approx: #039fe8;
+    $color_orient_approx: #005e8a;
+    $black_30: rgba(0, 0, 0, 0.3);
+    $color_gallery_approx: #eeeeee;
+    $black_70: rgba(0, 0, 0, 0.7);
+    $black: #000;
+    $flip_height: 45px;
+    $flip_font_size: 4.0em;
+
+    @media (max-width: $screen-sm){
+      $flip_height: 35px;
+      $flip_font_size: 3.0em;
+    }
+
+    //@extend-elements
+    //original selectors
+    //.clearfix:before, .clearfix:after
+    %extend_1 {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+
+
+    .flip-counter {
+      position: relative;
+      list-style-type: none;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      direction: rtl;
+      @include clearfix();
+
+      &.default {
+        .digit {
+          position: relative;
+          z-index: 0;
+          width: 10%;
+          height: ($flip_height * 2);
+          margin-left: 10px;
+          background: linear-gradient(to bottom, $color_cerulean_approx 0, $color_orient_approx 100%);
+          text-align: center;
+          line-height: 0;
+          //Instead of the line below you could use @include perspective($p)
+          perspective: 300px;
+          //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+          box-shadow: 0 2px 5px $black_30;
+          //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+          border-radius: 5px;
+          &:last-child {
+            margin-left: 0;
+          }
+          span {
+            position: absolute;
+            left: 0;
+            height: $flip_height;
+            width: 100%;
+            overflow: hidden;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 5px;
+            font-size: $flip_font_size;
+            font-family: $font-family-avenir;
+            font-weight: 600;
+            text-indent: 2px;
+            background: linear-gradient(to bottom, $color_cerulean_approx 0, $color_orient_approx 100%);
+            color: $color_gallery_approx;
+            //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+            transform: translate3d(0, 0, 0);
+            &.front {
+              top: 0;
+              padding-top: $flip_height;
+            }
+            &.back {
+              bottom: 0;
+            }
+          }
+          .line {
+            position: absolute;
+            z-index: 10;
+            height: $flip_height;
+            width: 100%;
+            border-bottom: 1px solid $black_30;
+            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+            box-shadow: 0 5px 7px -4px $black_70;
+          }
+          .hinge {
+            position: absolute;
+            z-index: 5;
+            height: $flip_height;
+            width: 100%;
+            //Instead of the line below you could use @include transform-style($style)
+            transform-style: preserve-3d;
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: transform 1s ease-in;
+            //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+            transform-origin: 50% 100%;
+            span {
+              height: 0;
+              z-index: 5;
+              //Instead of the line below you could use @include backface-visibility($visibility)
+              backface-visibility: hidden;
+              &.front {
+                padding-top: $flip_height;
+              }
+              &.back {
+                height: $flip_height;
+                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                transform: rotateX(180deg);
+              }
+            }
+          }
+          &.animate .hinge {
+            //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+            transform: rotateX(-180deg);
+          }
+        }
+        .digit-delimiter {
+          padding-top: 38px;
+          margin-right: -5px;
+          font-family: $font-family-avenir;
+          font-weight: 600;
+          font-size: 52px;
+          color: $black;
+          text-indent: 3.33333333px;
+          //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+          text-shadow: 1px 1px 5px $black_30;
+        }
+      }
+      li {
+        display: inline-block;
+      }
+    }
+    .counter-wrapper {
+      float: right;
+      position: relative;
+      left: -50%;
+      margin-top: 20px;
+    }
+    .clearfix {
+      *zoom: 1;
+      &:before {
+        @extend %extend_1;
+      }
+      &:after {
+        @extend %extend_1;
+        clear: both;
+      }
+    }
+    .no-csstransforms3d span.back {
+      display: none;
+    }
+  }
+}

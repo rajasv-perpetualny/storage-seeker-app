@@ -1,0 +1,62 @@
+/* !MAP LABELS */
+/*-----------------------------------------------------------*/
+.map-label-container {
+  position: absolute;
+  display: none;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+#search-results-container .map-label {
+  color: #fff;
+  background-color: #900;
+  border-radius: 5px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  font-size: 9px;
+  text-align: center;
+  width: 17px;
+  height: 28px;
+  padding: 8px 0 0 0;
+  white-space: nowrap;
+  background: url('/storage/images/map-markers/maps-pin--blue.png');
+}
+
+#search-results-container .map-label.selected {
+  background: url('/storage/images/map-markers/maps-pin--red.png');
+}
+
+#map-canvas .map-label {
+  color: #fff;
+  background-color: #900;
+  border-radius: 5px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  font-size: 9px;
+  text-align: center;
+  width: 17px;
+  height: 28px;
+  padding: 8px 0 0 0;
+  white-space: nowrap;
+  background: url('/storage/images/map-markers/maps-pin--blue.png');
+  cursor: pointer;
+}
+
+#map-canvas .map-label.selected {
+  background: url('/storage/images/map-markers/maps-pin--red.png');
+}
+
+.map-label-currency {
+  font-weight: normal;
+  padding-right: 0.2em;
+  color: #d9aefa;
+}
+
+.map-label-plus {
+  font-weight: normal;
+  padding-left: 0.2em;
+  color: #d9aefa;
+}
+
+.map-cluster-wrapper {
+  background: url(/storage/images/map-markers/cluster-icon.png) bottom right no-repeat;
+  padding-right: 13px;
+}

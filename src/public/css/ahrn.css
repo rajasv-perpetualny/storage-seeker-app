@@ -1,0 +1,558 @@
+/* 
+    Document   : militarystorage
+    Created on : 18-Oct-2013, 12:23:08 PM
+    Author     : ryan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.container,
+header,
+.inner-page-container,
+footer {
+  max-width: none !important;
+  width: 960px;
+}
+
+body {
+  background: #fff;
+}
+
+.outer-page-container {
+  margin-top: 20px;
+}
+
+.inner-page-container {
+  padding: 0px 15px 15px 15px;
+  border-left: 0px solid #dddddd;
+  border-right: 0px solid #dddddd;
+}
+
+#mastheadwide.home-masthead {
+  border-radius: 0;
+}
+
+#mastheadwide {
+  line-height: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+  height: 109px;
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#strapdroidwide.home-masthead {
+  width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#strapdroidwide {
+  width: 100%;
+  height: 90px;
+  border-collapse: collapse;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+#masthead-logo {
+  padding-left: 15px;
+  padding-top: 10px;
+  width: 220px;
+  background: transparent;
+}
+
+#masthead-title {
+  padding-top: 20px;
+  vertical-align: middle;
+  text-align: center;
+  font: 1.6em/1.1em Arial;
+  font-weight: bold;
+}
+
+#masthead-image {
+  width: 305px;
+  background: transparent;
+}
+
+/* !HEADER */
+
+/*-----------------------------------------------------------*/
+
+.header-container {
+  height: 110px;
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f2f2f2;
+  border-bottom: 5px solid #DE7A41;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  position: relative;
+}
+
+header {
+  text-align: left;
+  padding: 6px 0px 0px 0px;
+}
+
+.header-phone {
+  float: right;
+  margin: 3px 0 0 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+  display: none;
+}
+
+.header-guarantee {
+  display: none;
+  clear: right;
+  float: right;
+  margin: 2px 0 0 0;
+  font-weight: normal;
+  font-size: 10px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+header .sparefoot-logo {
+  margin: 0.9em 1.5em 0.5em 0;
+  float: left;
+  max-width: 150px;
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+header ul {
+  display: none;
+  margin: 0 0 0 0;
+  padding-top: 0.5em;
+}
+
+header ul li {
+  display: inline;
+  padding: 0 0.8em;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header ul li a:hover {
+  text-decoration: underline;
+  color: #ededed;
+}
+
+.header-search-form {
+  width: auto;
+  float: left;
+}
+
+.header-search {
+  width: 140px;
+  display: inline-block;
+  margin: 4px 2px 0 0;
+  height: 32px;
+  border: 1px solid #cca300;
+}
+
+.btn-header-search {
+  margin: 3px 0 0 0;
+}
+
+.tenyear.col-sm-2 {
+  float: right;
+  text-align: right;
+}
+
+p.header-quote {
+  color: #345895;
+  font-size: 16px;
+  margin: 24px 0px 0px 0px;
+  font-weight: bold;
+}
+
+.sublogo.col-sm-2 {
+  padding: 0px;
+}
+
+p.headersublogo {
+  margin-top: 27px;
+}
+
+.ahrnnav-container {
+  background: #415f83;
+  height: 40px;
+}
+
+.ahrnav {
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 8px 0px 0px 0px;
+}
+
+.ahrnav li {
+  float: left;
+  list-style-type: none;
+}
+
+.ahrnav a {
+  color: #fff;
+  padding: 12px 10px 14px 10px;
+  border-left: 1px solid #627b96;
+  border-right: 1px solid #384e67;
+  font-size: 12px;
+}
+
+.notifynum {
+  border: 1px solid #E04232;
+  background: #E04232;
+  color: #fff;
+  display: block;
+  text-align: center;
+  line-height: 15px;
+  border-radius: 21px;
+  margin-left: 2px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  text-indent: 0px;
+  padding: 0px 3px 0px 3px;
+}
+
+li a:hover {
+  color: #333;
+  background: #9bafca;
+  text-decoration: none;
+}
+
+a.dropdownitem li:hover {
+  color: #fff;
+  background: #9bafca;
+  text-decoration: none;
+}
+
+.ahrnav ul.dropdown-menu {
+  background: #415f83;
+  width: 200px;
+  color: #fff;
+  padding: 0px;
+  font-size: 12px;
+  margin-top: 12px;
+  border-radius: 0px;
+}
+
+a.dropdownitem {
+  border: none;
+  padding: 0px;
+}
+
+a.dropdownitem li {
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 6px;
+  width: 100%;
+}
+
+.marketfacility {
+  display: none;
+}
+
+#milribbon {
+  margin-top: -20px;
+  float: right;
+}
+
+.mil-logo {
+  height: 36px;
+  margin: 2px;
+}
+
+@media (min-width: 768px) {
+  header .sparefoot-logo {
+    max-width: 222px;
+    margin: 0.9em 1.5em 0.5em 0;
+  }
+
+  .header-phone {
+    display: block;
+  }
+
+  .header-guarantee {
+    display: block;
+  }
+
+  .header-search-form {
+    width: 270px;
+  }
+
+  .header-search {
+    width: 220px;
+  }
+}
+
+@media (min-width: 992px) {
+  header ul {
+    display: inline;
+  }
+}
+
+/* !CONTENT */
+
+/*-----------------------------------------------------------*/
+
+.index-jumbotron {
+  background: url(/storage/images/sparefoot/militarystorage/militaryimage.jpg) top left no-repeat;
+  min-height: 17em;
+}
+
+.index-jumbotron .well {
+  max-width: 18em;
+}
+
+.index-jumbotron .search-container {
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebebeb',endColorstr='#fff',GradientType=0);
+  background-image: url(/storage/images/sparefoot/militarystorage/hashmark-header-mil.png) -webkit-gradient(linear, left bottom, left top, color-stop(0, #ebebeb), color-stop(1, white));
+  background: -moz-linear-gradient(top, #ebebeb 0%, #fff 100%);
+  background-color: #ebebeb;
+  border-bottom: 1px solid #6f90bc;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+  position: relative;
+  width: 400px;
+  padding: 20px;
+  margin-top: -24px;
+}
+
+.index-jumbotron .search-container h2 {
+  font-size: 20px;
+  color: #1a3573;
+  margin-bottom: 20px;
+}
+
+#miltestimonial1 {
+  font-size: 10px;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  border-bottom: solid 1px #dddddd;
+  padding: 0px 15px 5px 15px;
+}
+
+#miltestimonial2 {
+  font-size: 10px;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  padding: 0px 15px 5px 15px;
+}
+
+#military-page .col-md-3 {
+  padding: 8px;
+}
+
+#military-page .col-md-3 p {
+  font-size: 12px;
+  text-align: justify;
+}
+
+#military-page .col-md-12 {
+  padding: 12px;
+}
+
+/* !FOOTER */
+
+/*-----------------------------------------------------------*/
+
+footer {
+  clear: both;
+  text-align: center;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.ahrn-footer {
+  border-top: #ddd 4px solid;
+  color: #ddd;
+  line-height: 1.5em;
+  padding: 1.5em;
+  font-size: 12px;
+  height: 160px;
+}
+
+.ahrnfoot {
+  border: 1px solid #415f83;
+  border-radius: 4px;
+  padding: 6px 0px 0px 0px;
+}
+
+.ahrnfoot a {
+  color: #16477d;
+}
+
+p.footertext {
+  color: #212221;
+}
+
+#copyright {
+  color: #999;
+}
+
+footer a {
+  color: #888;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #000;
+}
+
+.footer-menu {
+  float: left;
+  margin: 1em 2em;
+}
+
+.footer-menu ul li {
+  list-style-type: none;
+  margin: 0.3em 0;
+}
+
+#disclaimer {
+  margin: 1em 1em 1em 32em;
+  line-height: 1.5em;
+}
+
+#disclaimer p {
+  font-size: 0.6875em;
+}
+
+#footer-part2 {
+  padding: 0.5em 0.5em 2em 0.5em;
+  color: #666;
+  font-size: 0.83em;
+}
+
+#footer-part2 h4 {
+  margin-top: 1em;
+}
+
+#footer-part2 a {
+  color: #fff;
+}
+
+#footer-part2 a:hover {
+  color: #fff;
+}
+
+#footer-part2-seals {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#footerphone {
+  color: #fff;
+  text-align: center;
+  min-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+#phonenumber {
+  margin-top: 5px;
+  color: #fff;
+  font-size: 1.9em;
+  font-weight: bold;
+}
+
+#connectwithus {
+  padding: 0px;
+}
+
+#aboutsparefoot {
+  line-height: 26px;
+  color: #fff;
+  min-height: 20px;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+#aboutsparefoot a {
+  padding-right: 30px;
+  color: #fff;
+}
+
+#nmfa {
+  float: right;
+}
+
+#toplocations {
+  text-align: center;
+  line-height: 26px;
+  color: #fff;
+  min-height: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+#storagebytype {
+  text-align: center;
+  line-height: 26px;
+  color: #fff;
+  min-height: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+#forfacilityowners {
+  text-align: center;
+  line-height: 26px;
+  color: #fff;
+  min-height: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #footerphone,
+  #aboutsparefoot,
+  #toplocations,
+  #storagebytype {
+    border-right: 0px solid #ddd;
+  }
+
+  #footerphone,
+  #aboutsparefoot,
+  #toplocations,
+  #storagebytype,
+  #forfacilityowners {
+    text-align: left;
+  }
+
+  #toplocations,
+  #storagebytype,
+  #forfacilityowners {
+    display: block;
+  }
+}
+

@@ -1,0 +1,54 @@
+html, body {
+  background-color: #fff;
+  /* font-family: 'Helvetica Neue', sans-serif; */
+  margin: 0px;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.content {
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+.cobrand-legal-link {
+  font-size: .8333em;
+  text-decoration: none;
+}
+
+.footer-container {
+  clear: both;
+  display: block;
+}
+
+.radio input[type="radio"] {
+  position: relative;
+  margin-left: 5px;
+}
+
+.checkbox input[type="checkbox"] {
+  position: relative;
+  margin-left: 5px;
+}
+
+.default .row {
+  display: flex;
+  justify-content: center;
+}
+
+.default form {
+  width: 20rem;
+}

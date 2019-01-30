@@ -1,0 +1,126 @@
+FROM php:7.1.11-apache
+LABEL maintainer SF Dev Team <dev@sparefoot.com>
+
+ARG APACHE_CONFDIR="/etc/apache2"
+ARG APACHE_ENVVARS="$APACHE_CONFDIR/envvars"
+
+ENV DEBIAN_FRONTEND noninteractive
+
+ARG BASE_TOOLS="binutils curl git-core jq netcat net-tools vim zip"
+
+ARG RUNTIME_DEPS="\
+        libcurl4-openssl-dev \
+        libedit-dev \
+        libjpeg-dev \
+        libmemcached-dev \
+        libpng-dev \
+        libsqlite3-dev \
+        libssl-dev \
+        libxml2-dev \
+        xz-utils \
+        zlib1g-dev \
+        libedit2 \
+        libjpeg62 \
+        libmemcached11 \
+        libmemcachedutil2 \
+        libpng12-0 \
+        libxml2 \
+        zlib1g \
+        apt-transport-https"
+
+RUN apt-get update && \
+    apt-get upgrade -y
+
+RUN apt-get install -y --no-install-recommends \
+        $BASE_TOOLS \
+        $RUNTIME_DEPS
+
+# Exit failed Bash commands immediately and print a trace (see https://www.gnu.org/software/bash/manual/bashref.html#The-Set-Builtin)    
+RUN set -ex && \
+    # generically convert lines like
+    #   export APACHE_RUN_USER=www-data
+    # into
+    #   : ${APACHE_RUN_USER:=www-data}
+    #   export APACHE_RUN_USER
+    # so that they can be overridden at runtime ("-e APACHE_RUN_USER=...")
+    sed -ri 's/^export ([^=]+)=(.*)$/: ${\1:=\2}\nexport \1/' "$APACHE_ENVVARS" && \
+    # Setup Apache directories and permissions
+    . "$APACHE_ENVVARS" && \
+    for dir in "$APACHE_LOCK_DIR" "$APACHE_RUN_DIR" "$APACHE_LOG_DIR" /var/www/html; do \
+        rm -rvf "$dir"; \
+        mkdir -p "$dir"; \
+        chown -R "$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$dir"; \
+    done && \
+    # Apache logs should go to stdout / stderr
+    . "$APACHE_ENVVARS" && \
+    ln -sfT /dev/stderr "$APACHE_LOG_DIR/error.log" && \
+    ln -sfT /dev/stdout "$APACHE_LOG_DIR/access.log" && \
+    # Enable some Apache modules
+    a2enmod deflate expires headers rewrite usertrack && \
+    # Disable some Apache configs
+    a2disconf charset localized-error-pages other-vhosts-access-log serve-cgi-bin && \
+    # Install/configure PHP modules
+    docker-php-ext-configure gd --with-jpeg-dir=/usr && docker-php-ext-install gd && \
+    docker-php-ext-install bcmath && \
+    docker-php-ext-install mbstring && \
+    docker-php-ext-install opcache && \
+    docker-php-ext-install pdo_mysql && \
+    docker-php-ext-install soap && \
+    docker-php-ext-install sockets && \
+    docker-php-ext-install zip && \
+    # install Xdebug
+    pecl install xdebug && \
+    # Install Composer
+    curl -A "Docker" -o /usr/local/bin/composer -L -s http://getcomposer.org/composer.phar && \
+    chmod +x /usr/local/bin/composer && \
+    # Create app log folder
+    mkdir -p /var/log/storageseeker/apps
+
+## Clean up after ourselves
+RUN apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $BUILD_DEPS $PHPIZE_DEPS ".*-dev" && \
+   rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/* /usr/include/* /usr/share/man/* /usr/src/*
+
+# Moving our custom apache2 conf to be the server config [custom log]
+COPY etc/apache2/apache2.conf /etc/apache2/apache2.conf
+COPY etc/apache2/conf-available/security.conf /etc/apache2/conf-available/security.conf
+COPY etc/apache2/mods-available/deflate.conf /etc/apache2/mods-available/deflate.conf
+COPY etc/apache2/mods-available/expires.conf /etc/apache2/mods-available/expires.conf
+COPY etc/apache2/mods-available/headers.conf /etc/apache2/mods-available/headers.conf
+
+WORKDIR /var/www/html
+
+# StorageSeeker specific
+COPY crontab /etc/cron.d/scheduler-cron
+RUN chmod 0644 /etc/cron.d/scheduler-cron
+RUN touch /var/log/cron.log
+
+# Set vhost file
+COPY ./etc/vhost.conf /etc/apache2/sites-enabled/000-default.conf
+
+RUN curl -L https://nodejs.org/dist/v8.0.0/node-v8.0.0-linux-x64.tar.gz | tar xvz --strip-components=1 -C /usr/local
+
+# See http://sentinelstand.com/article/composer-install-in-dockerfile-without-breaking-cache
+WORKDIR /opt/storageseeker
+COPY . /opt/storageseeker
+
+WORKDIR /opt/storageseeker/src
+
+RUN mkdir -p storage \
+&& mkdir -p storage/app \
+&& mkdir -p storage/framework/cache \
+&& mkdir -p storage/framework/sessions \
+&& mkdir -p storage/framework/views \
+&& mkdir -p storage/logs \
+&& mkdir -p storage/uploads \
+&& mkdir -p storage/debugbar \
+&& chmod -R 775 storage
+
+RUN chown -R www-data:www-data /opt/storageseeker/src
+
+# Standard test runner
+COPY ./run_tests.sh /opt/storageseeker/run_tests.sh
+
+# App startup script (run by Supervisor)
+COPY ./startup.sh /opt/storageseeker/startup.sh
+
+EXPOSE 80

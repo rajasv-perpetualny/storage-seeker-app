@@ -1,0 +1,67 @@
+version: '2'
+networks:
+  default:
+    external:
+      name: localnet
+
+services:
+  storageseeker:
+    container_name: storageseeker
+    environment:
+      DISABLE_OPCODE_CACHE: 1
+      SF_ENV: stage
+      SF_ENV: "{{ sf_env }}"
+      VERSION: "{{ version }}"
+      SOAP_API_URL: "http://service.sparefoot.com"
+      TERMS_OF_USE_URL: "https://www.sparefoot.com/legal/consumer.html"
+      APP_ENV: "local"
+      APP_DEBUG: "true"
+      APP_LOG_LEVEL: "debug"
+      APP_URL: "http://localhost:9107"
+      SOAP_API_KEY: "9243da5b21298f8d17fa368a459062eb"
+      GOOGLE_MAPS_JSAPI: "AIzaSyAhfreR3f0ZvGOUKgNyc2Td9MYqpUpTKDE"
+      GOOGLE_MAPS_API_KEY: "AIzaSyC2KqndMtZK75yoGPTdPsMAdc540iyfBZE&sensor=false&libraries=places"
+      REDIS_CLIENT: "phpredis"
+      REDIS_HOST: "storageseeker-redis"
+      REDIS_PASSWORD: null
+      REDIS_PORT: "6379"
+      REDIS_DATABASE: 0
+      REDIS_TIMEOUT: 60
+      COMPOSER_ALLOW_SUPERUSER: 1
+    expose:
+    - '80'
+    build: .
+    ports:
+    - 9107:80
+    stdin_open: true
+    tty: true
+    volumes:
+    - .:/opt/storageseeker
+    networks:
+      default:
+        aliases:
+        - storageseeker
+
+  storageseeker-chrome:
+    image: robcherry/docker-chromedriver
+    networks:
+      default:
+        aliases:
+        - storageseeker
+    environment:
+      CHROMEDRIVER_WHITELISTED_IPS: ""
+      CHROMEDRIVER_PORT: "9515"
+    ports:
+      - 9515:9515
+    cap_add:
+      - "SYS_ADMIN"
+
+  storageseeker-redis:
+    image: redis:latest
+    networks:
+      default:
+    ports:
+      - "6379:6379"
+networks:
+  default:
+    driver: bridge

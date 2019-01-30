@@ -1,0 +1,1 @@
+* * * * * php /opt/storageseeker/src/artisan schedule:run >> /dev/null 2>&1

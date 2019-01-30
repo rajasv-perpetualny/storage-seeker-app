@@ -1,0 +1,36 @@
+@import "icons";
+@import "slider";
+@import "star-rating";
+@import "breadcrumb";
+@import "consumerlead";
+
+@mixin pull-left {
+  float: left !important;
+}
+
+@mixin pull-right {
+  float: right !important;
+}
+
+@mixin hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+::-webkit-inner-spin-button { display: none; }
+#reservation_moveInDate::-webkit-calendar-picker-indicator {
+  margin-right: 25px;
+}
+
+.date-input-buttons {
+  display:none !important;
+}
+
+.ws-date {
+  padding-left: 35px;
+  width: 100%;
+  min-width: 250px;
+}
