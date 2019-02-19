@@ -8,7 +8,7 @@
             </ul>
         </nav>
         <div id="header-phone-number" class="phone">{{ config('site.' . config('domain') . '.phone') }}</div>
-        @includeWhen(is_object($breadcumb), 'includes.crumbs', ['breadcumb' => $breadcumb])
+        @includeWhen(is_object($breadcrumb), 'includes.crumbs', ['breadcrumb' => $breadcrumb])
     </div>
 </header>
 

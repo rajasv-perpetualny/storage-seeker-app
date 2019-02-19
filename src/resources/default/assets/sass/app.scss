@@ -5,12 +5,13 @@
  */
 
 // Third-party libs
+//These are all found in the node_modules folder, linked in webpack.mix.js
 
 @import "base/variables";
-@import "vendor/math/math";
-@import "vendor/bourbon/bourbon";
-@import "vendor/bootstrap";
-@import "vendor/font-awesome/font-awesome";
+@import "~mathsass";
+@import "bourbon/core/bourbon";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "font-awesome-sass/assets/stylesheets/font-awesome";
 
 
 

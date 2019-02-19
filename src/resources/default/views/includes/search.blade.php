@@ -12,12 +12,6 @@
                            class="form-control user-success" value="{{$location}}" placeholder="Enter a location"
                            autocomplete="off" type="text">
                 </div>
-                <div class="input-group">
-                    <label>Check-in date:</label>
-                    <input id="search_moveInDate" name="moveInDate" min="{{date('Y-m-d')}}" class="form-control"
-                           value="{{$moveInDate}}" type="date">
-                    <i></i>
-                </div>
                 <span class="input-group-btn submit">
                         <button type="submit" id="search_search" name="search" class="btn-default btn">Search</button>
                     </span>

@@ -20,6 +20,10 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
+@mixin background($val){
+  background: $val;
+}
+
 ::-webkit-inner-spin-button { display: none; }
 #reservation_moveInDate::-webkit-calendar-picker-indicator {
   margin-right: 25px;

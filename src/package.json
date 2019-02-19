@@ -12,6 +12,9 @@
   "devDependencies": {
     "axios": "^0.16.2",
     "bootstrap-sass": "^3.3.7",
+    "bourbon": "5.1.0",
+    "mathsass": "0.10.1",
+    "font-awesome-sass": "4.7.0",
     "cross-env": "^5.1.3",
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
@@ -21,6 +24,7 @@
   "dependencies": {
     "jquery-star-rating-plugin": "^4.11.0",
     "jquery-ui-dist": "^1.12.1",
-    "jquery_metadata": "^2.0.0"
+    "jquery_metadata": "^2.0.0",
+    "node-sass": "^4.11.0"
   }
 }

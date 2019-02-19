@@ -918,7 +918,7 @@ $hr-border:                   $gray-lighter !default;
 //== Font-Awesome
 //
 //##
-$fa-font-path:        "#{$root-dir}/fonts" !default;
+$fa-font-path:        "#{$root-dir}/fonts/" !default;
 $fa-font-size-base:   14px !default;
 //$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts" !default; // for referencing Bootstrap CDN font files directly
 $fa-css-prefix:       fa !default;

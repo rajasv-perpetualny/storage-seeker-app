@@ -9,7 +9,7 @@
             @endforeach
         </div>
     @endif
-    @includeWhen(is_object($breadcumb), 'includes.crumbs', ['breadcumb' => $breadcumb])
+    @includeWhen(is_object($breadcrumb), 'includes.crumbs', ['breadcrumb' => $breadcrumb])
     <h2>Reserve Unit</h2>
     <div class="row">
         <div class="col-md-8" id="booking-form-container">

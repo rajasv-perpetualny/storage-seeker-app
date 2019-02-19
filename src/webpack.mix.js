@@ -16,5 +16,7 @@ mix.js('resources/default/assets/js/app.js', 'public/js')
     .js('resources/default/assets/js/googlemaps.js','public/js')
     .js('resources/default/assets/js/starpicker.js','public/js')
     .js('resources/default/assets/js/searchfilters.js','public/js')
-    .sass('resources/default/assets/sass/app.scss', 'public/css')
-    .sass('resources/default/assets/sass/font-awesome.scss', 'public/css');
+    .sass('resources/default/assets/sass/app.scss', 'public/css', {
+      includePaths: ['node_modules', 'resources/default/assets/sass']
+    });
+    // .sass('resources/default/assets/sass/font-awesome.scss', 'public/css');
