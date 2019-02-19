@@ -115,6 +115,7 @@ RUN mkdir -p storage \
 && mkdir -p storage/debugbar \
 && chmod -R 775 storage
 
+RUN chown -R www-data:www-data /opt/storageseeker/src
 
 # Standard test runner
 COPY ./run_tests.sh /opt/storageseeker/run_tests.sh
@@ -122,11 +123,4 @@ COPY ./run_tests.sh /opt/storageseeker/run_tests.sh
 # App startup script (run by Supervisor)
 COPY ./startup.sh /opt/storageseeker/startup.sh
 
-RUN composer install
-RUN npm install
-RUN chown -R 1000:1000 /opt/storageseeker/src
-RUN ln -sfn /opt/storageseeker/src/storage/app/public /opt/storageseeker/src/public/storage
-RUN npm run prod
 EXPOSE 80
-
-CMD ["sh", "/opt/storageseeker/startup.sh"]

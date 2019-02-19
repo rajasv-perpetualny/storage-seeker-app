@@ -14,7 +14,7 @@ docker-compose up -d
 docker exec -it storageseeker composer install
 docker exec -it storageseeker npm install
 docker exec -it storageseeker ln -sfn /opt/storageseeker/src/storage/app/public /opt/storageseeker/src/public/storage
-docker exec -it storageseeker npm run dev
+docker exec -it storageseeker npm run watch
 
 # Log output
 docker-compose logs -f

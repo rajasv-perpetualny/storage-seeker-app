@@ -30,7 +30,9 @@ services:
       COMPOSER_ALLOW_SUPERUSER: 1
     expose:
     - '80'
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
     - 9107:80
     stdin_open: true
