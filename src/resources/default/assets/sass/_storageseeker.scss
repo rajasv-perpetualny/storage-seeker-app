@@ -18,6 +18,20 @@ html, body {
   text-align: center;
 }
 
+#near-me {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.input-container {
+  display: inline-block;
+}
+body.home main .home .search .form .location .widget label {
+  display: block;
+}
+
 /* FOOTER */
 footer {
   margin: 0 auto;

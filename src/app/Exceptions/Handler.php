@@ -48,12 +48,12 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($exception instanceof NotFoundHttpException) {
-            return response()->view('errors.404', ['bodyClass' => 'storageseeker home','breadcumb' => null], 404);
+            return response()->view('errors.404', ['bodyClass' => 'storageseeker home','breadcrumb' => null], 404);
         }
         //Handle the FatalError with SoapAPI, returning a new Soap-API exception
         if (strpos($exception->getMessage(), 'SOAP-ERROR') !== false) {
             error_log("Soap Client construct failed because: {$exception->getMessage()}");
-            return response()->view('listing', ['bodyClass' => 'storageseeker error', 'titlePage' => 'StorageSeeker Error', 'error' => 1, 'breadcumb' => null]);
+            return response()->view('listing', ['bodyClass' => 'storageseeker error', 'titlePage' => 'StorageSeeker Error', 'error' => 1, 'breadcrumb' => null]);
         }
         if ($exception instanceof SoapCallException) {
             if (
@@ -66,13 +66,13 @@ class Handler extends ExceptionHandler
             } else {
                 $message = $exception->getMessage();
             }
-            return response()->view('errors.4xx', ['errorMessage' => $message, 'bodyClass' => 'storageseeker home', 'breadcumb' => null]);
+            return response()->view('errors.4xx', ['errorMessage' => $message, 'bodyClass' => 'storageseeker home', 'breadcrumb' => null]);
         } elseif ($exception instanceof \Illuminate\Session\TokenMismatchException) {
 
             \Debugbar::info($exception);
 
             $message = "Your form has expired.";
-            return response()->view('errors.4xx', ['errorMessage' => $message, 'bodyClass' => 'storageseeker home', 'breadcumb' => null]);
+            return response()->view('errors.4xx', ['errorMessage' => $message, 'bodyClass' => 'storageseeker home', 'breadcrumb' => null]);
         }
         return parent::render($request, $exception);
     }

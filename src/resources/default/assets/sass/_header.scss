@@ -157,6 +157,44 @@ body {
     }
   }
 
+  .featured-cities{
+    @include clearfix();
+
+    padding: 70px 0;
+    border-top: 1px solid #ECECEC;
+
+    h3{
+      margin-top: 20px;
+      margin-bottom: 50px;
+      font-size: 20px;
+      font-weight: 500;
+      text-align: center;
+    }
+    
+    ul{
+      @include make-xs-column(12, 0);
+      @include make-sm-column(2, 0);
+      list-style: none;
+      text-align: center;
+      line-height: 2;
+      padding: 0;
+
+      &:nth-of-type(1){
+        @include make-sm-column-offset(2);
+      }
+      &:nth-of-type(2){
+        @include make-sm-column-offset(1);
+      }
+      &:nth-of-type(3){
+        @include make-sm-column-offset(1);
+      }
+
+      @media (min-width: $screen-sm){
+        text-align: left;
+      }
+    }
+  }
+
 
   footer{
     background: #FFFFFF;
@@ -171,33 +209,6 @@ body {
       font-size: 20px;
       font-weight: 500;
       text-align: center;
-    }
-
-    .featured-cities{
-      @include clearfix();
-
-      ul{
-        @include make-xs-column(12, 0);
-        @include make-sm-column(2, 0);
-        list-style: none;
-        text-align: center;
-        line-height: 2;
-        padding: 0;
-
-        &:nth-of-type(1){
-          @include make-sm-column-offset(2);
-        }
-        &:nth-of-type(2){
-          @include make-sm-column-offset(1);
-        }
-        &:nth-of-type(3){
-          @include make-sm-column-offset(1);
-        }
-
-        @media (min-width: $screen-sm){
-          text-align: left;
-        }
-      }
     }
 
     .footer-content{

@@ -224,21 +224,39 @@ body.home {
           .location {
             .widget {
               @extend .input-group;
+              display: flex;
+              align-items: flex-end;
+              justify-content: center;
               margin: 0 auto;
               width: auto;
-              max-width: 600px;
+              max-width: 800px;
               border-spacing: 20px 0;
-
+              @media (max-width: $screen-sm) {
+                display: block;
+              }
+              .input-container {
+                flex: 0 0 30%;
+                @media (max-width: $screen-sm) {
+                  flex: unset;
+                  width: 50%;
+                  margin: auto;
+                  display: block;
+                  input {
+                    margin-bottom: 20px;
+                  }
+                  .form-control:first-child {
+                    width: 100%;
+                  }
+                }
+              }
               label{
-                display: table-cell;
-                vertical-align: bottom;
                 font-weight: 500;
                 position: relative;
 
                 @media (max-width: $screen-sm) {
                   width: 100%;
                   clear: both;
-                  margin-bottom: 20px;
+                  margin-bottom: 10px;
                   display: block;
                   @include clearfix();
 

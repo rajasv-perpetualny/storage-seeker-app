@@ -8,6 +8,7 @@ require('jquery_metadata/jquery.metadata');
 require('./searchfilters');
 require('./review');
 require('./unit');
+require('./searchzip');
 const Places = require('./places');
 const StarPicker = require('./starpicker');
 

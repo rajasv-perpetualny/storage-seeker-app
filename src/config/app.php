@@ -225,6 +225,12 @@ return [
           */
         Barryvdh\Debugbar\ServiceProvider::class,
 
+
+        /*
+          * Wordpress Connection...
+          */
+         Corcel\Laravel\CorcelServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

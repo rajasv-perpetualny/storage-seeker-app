@@ -66,7 +66,7 @@ class FacilityController extends Controller
         );
 
         if(isset($response->responseCode) && $response->responseCode != -1) {
-            $breadcumb = Container::getInstance()->makeWith(\App\Models\Breadcumb::class, [
+            $breadcrumb = Container::getInstance()->makeWith(\App\Models\Breadcrumb::class, [
                 'address' => $response->facility->address,
                 'city' => $response->facility->city,
                 'state' => $response->facility->state,
@@ -75,7 +75,7 @@ class FacilityController extends Controller
                 'facilityName' => $response->facility->name,
             ]);
 
-            $breadcumb->facilityPage = true;
+            $breadcrumb->facilityPage = true;
 
             $gmarkers = Container::getInstance()->makeWith(\App\Models\GoogleMarkers::class,[
                 'listings' => [$response->facility],
@@ -87,7 +87,7 @@ class FacilityController extends Controller
                 'reviews' => $paginatedReviews,
                 'perPage'=>$perPage,
                 'facilityUnitGroupsByType' => $this->loadGroupedUnits($response->facility),
-                'breadcumb' => $breadcumb,
+                'breadcrumb' => $breadcrumb,
                 'markers' => $gmarkers,
                 'latitude' => $response->facility->latitude,
                 'longitude' => $response->facility->longitude,

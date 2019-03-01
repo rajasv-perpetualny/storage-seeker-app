@@ -7,6 +7,7 @@
         @yield('content')
     </main>
     @if(!empty($bodyClass) && $bodyClass=='storageseeker home' )
+        @include ('includes.featuredCities')
         @include('includes.homeFooter')
     @endif
         <script>

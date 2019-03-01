@@ -90,6 +90,10 @@ class SearchServiceProvider extends ServiceProvider
         $this->app->bind(\App\Models\CityLandingPage::class, function($app, $params) {
             $soap = Container::getInstance()->makeWith(\App\Models\SoapClientFacade::class,['endpoint' => 'search']);
             // $this->data = ['space' => $params['rawReservation'], 'token' => config('site.' . config('domain') . '.token')];
+            $this->data = ['query' => [
+                'location' => $params['location'],
+                ],
+            ];
             $search = $this->getCityLandingPages($soap);
             return $search;
         });
@@ -122,9 +126,12 @@ class SearchServiceProvider extends ServiceProvider
      * city & state, or zip code.
      * @return ResponseQuery
      */
-    public final function getCityLandingPages($location)
+    public final function getCityLandingPages($soap)
     {
-        $result = $this->soap->getCityLandingPages(config('site.' . config('domain') . '.soap_api_key'), $location);
+
+        $result = $soap->getCityLandingPages(config('site.' . config('domain') . '.soap_api_key'), $this->data['query']['location']);
+        var_dump($result);
+
         if(isset($result->responseCode) && $result->responseCode == -1) {
             throw new \App\Exceptions\SoapCallException($result->message);
         }

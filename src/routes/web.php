@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Cookie;
  */
 
 Route::get('/', function () {
-    return view('pages.home', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Compare Self Storage Units | Search Storage Facilities By Zip Code | StorageSeeker', 'breadcumb' => null]);
+    return view('pages.home', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Compare Self Storage Units | Search Storage Facilities By Zip Code | StorageSeeker', 'breadcrumb' => null]);
 });
 
 Route::get('/ping', function () {
@@ -26,23 +26,23 @@ Route::get('/ping', function () {
 });
 
 Route::get('/size-guide', function(){
-    return view('pages.size-guide', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Self Storage Unit Size Guide | Find Out What Size Storage Unit You Need | StorageSeeker', 'breadcumb' => null]);
+    return view('pages.size-guide', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Self Storage Unit Size Guide | Find Out What Size Storage Unit You Need | StorageSeeker', 'breadcrumb' => null]);
 });
 
 Route::get('/find-storage', function(){
-    return view('pages.find-storage', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Find Storage Units By Zip Code | Compare Self Storage Unit Rates | StorageSeeker', 'breadcumb' => null]);
+    return view('pages.find-storage', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Find Storage Units By Zip Code | Compare Self Storage Unit Rates | StorageSeeker', 'breadcrumb' => null]);
 });
 
 Route::get('/terms', function(){
-    return view('pages.terms', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Terms and Conditions | StorageSeeker', 'breadcumb' => null]);
+    return view('pages.terms', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Terms and Conditions | StorageSeeker', 'breadcrumb' => null]);
 });
 
 Route::get('/privacy', function(){
-    return view('pages.privacy', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Privacy policy | StorageSeeker', 'breadcumb' => null]);
+    return view('pages.privacy', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Privacy policy | StorageSeeker', 'breadcrumb' => null]);
 });
 
 Route::get('/legal', function(){
-    return view('pages.legal', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Legal | StorageSeeker', 'breadcumb' => null]);
+    return view('pages.legal', ['bodyClass' => 'storageseeker home', 'titlePage' => 'Legal | StorageSeeker', 'breadcrumb' => null]);
 });
 
 /**
@@ -76,6 +76,8 @@ Route::get('/search/{location}', 'SearchController@getResults');
 Route::match(['get', 'post'], '/search',
     ['as' => 'searchModule', 'uses' => 'SearchController@getResults']);
 
+Route::get('/state/{location}', 'SearchController@getResults');
+
 /**
  * Facility
  */
@@ -83,3 +85,6 @@ Route::post('/facility/{facilityId}/review',
     ['as' => 'reviewAction', 'uses' => 'FacilityController@doReview']);
 
 Route::get('/facility/{id}/',['as' => 'facilityModule', 'uses' => 'FacilityController@getFacilityDetails']);
+
+// Route::get('/state/{slug}', 'StateLandingController@getStatePage');
+Route::get('/state/{slug}/data', 'StateLandingController@getStateData');

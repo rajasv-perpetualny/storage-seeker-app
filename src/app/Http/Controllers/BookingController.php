@@ -36,7 +36,7 @@ class BookingController
         $data['noindex'] = true;
         $data['displayPhone'] = 'PUT_SPAREPHONE_BY_ZIP_HERE';
 
-        $breadcumb = Container::getInstance()->makeWith(\App\Models\Breadcumb::class, [
+        $breadcrumb = Container::getInstance()->makeWith(\App\Models\Breadcrumb::class, [
             'address' => $unit->facility->address,
             'city' => $unit->facility->city,
             'state' => $unit->facility->state,
@@ -50,7 +50,7 @@ class BookingController
         ]);
 
 
-        $data['breadcumb'] = $breadcumb;
+        $data['breadcrumb'] = $breadcrumb;
         $data['markers'] = $markers;
         $data['calendar'] = new Calendar($unit->facility->officeHours);
 
@@ -59,7 +59,7 @@ class BookingController
     }
 
     public function doReserve(Unit $unit) {
-            $breadcumb = Container::getInstance()->makeWith(\App\Models\Breadcumb::class, [
+            $breadcrumb = Container::getInstance()->makeWith(\App\Models\Breadcrumb::class, [
                 'city' => $unit->facility->city,
                 'state' => $unit->facility->state,
                 'address' => $unit->facility->address,
@@ -102,7 +102,7 @@ class BookingController
                     return view('pages.confirmation', [
                         'bodyClass' => 'reservation',
                         'unit' => $unit,
-                        'breadcumb' => $breadcumb,
+                        'breadcrumb' => $breadcrumb,
                         'k' => $unit->reservationConfirmation->getAccessKey(),
                     ]);
 
@@ -110,7 +110,7 @@ class BookingController
                 error_log($e);
 
                 $data['errorMessage'] = $e->getMessage();
-                $data['breadcumb'] = $breadcumb;
+                $data['breadcrumb'] = $breadcrumb;
 
                 return view('pages.reservationError', $data);
             }

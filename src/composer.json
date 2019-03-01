@@ -6,14 +6,17 @@
   "type": "project",
   "require": {
     "php": ">=7.1.0",
-    "barryvdh/laravel-debugbar": "~2.4",
     "browserstack/browserstack-local": "^1.1",
-    "laravel/framework": "5.4.*",
+    "laravel/framework": "5.5.*",
     "laravel/tinker": "~1.0",
     "laravelcollective/html": "^5.4",
-    "predis/predis": "^1.1"
+    "predis/predis": "^1.1",
+    "jgrossi/corcel": "2.5.1",
+    "corcel/acf": "1.1.0",
+    "spatie/laravel-sitemap": "4.0"
   },
   "require-dev": {
+    "barryvdh/laravel-debugbar": "~2.4",
     "fzaninotto/faker": "~1.4",
     "laravel/dusk": "^1.0.13",
     "mockery/mockery": "0.9.*",

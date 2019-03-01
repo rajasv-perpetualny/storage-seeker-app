@@ -4,7 +4,8 @@
             {!! Form::open( ['url' => '/search', 'method' => 'post'] ) !!}
             <div class="location">
                 <div class="widget">
-                    <label>Find self-storage near:
+                    <div class="input-container">
+                    <label>Find self-storage near:</label>
                         {!! Form::input('text', 'location', '', array(
                         'id' => 'search_location',
                         'required' => 'required',
@@ -12,8 +13,8 @@
                         'placeholder' => 'Enter a location',
                         'autocomplete' => 'off'
                         ) ) !!}
-                    </label>
-
+                    </div>
+                    <div class="input-container">
                     <span class="input-group-btn submit" >
                         {!! Form::button('Find Units', array(
                         'type' => 'submit',
@@ -23,6 +24,7 @@
                         'class' => 'form-control',
                         ) ) !!}
                     </span>
+                  </div>
                 </div>
             </div>
             {!! Form::close() !!}

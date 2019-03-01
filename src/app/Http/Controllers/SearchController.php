@@ -55,6 +55,7 @@ class SearchController extends Controller
                 'order' => 'sometimes|required',
                 'sqft' => 'sometimes|required',
             ]);
+            // $response = Container::getInstance()->makeWith(\App\Models\CityLandingPage::class, [
             $response = Container::getInstance()->makeWith(\App\Interfaces\ISearch::class, [
                 'location' => $location,
                 'page' => $page,
@@ -83,7 +84,7 @@ class SearchController extends Controller
                 list($city, $state) = explode(" ", $response->searchResult->location);
             }
 
-            $breadcumb = Container::getInstance()->makeWith(\App\Models\Breadcumb::class, [
+            $breadcrumb = Container::getInstance()->makeWith(\App\Models\Breadcrumb::class, [
                 'city' => $city,
                 'state' => $state,
                 'address' => null,
@@ -109,7 +110,7 @@ class SearchController extends Controller
                 'aaaActiveHeader' => false,
                 'aaaEligibleHeader' => false,
                 'alternateUnits' => [],
-                'breadcumb' => $breadcumb,
+                'breadcrumb' => $breadcrumb,
                 'markers' => $gmarkers,
                 'latitude' => $response->searchResult->latitude,
                 'longitude' => $response->searchResult->longitude,
@@ -140,7 +141,7 @@ class SearchController extends Controller
                 'aaaActiveHeader' => false,
                 'aaaEligibleHeader' => false,
                 'alternateUnits' => [],
-                'breadcumb' => null,
+                'breadcrumb' => null,
                 'markers' => '[]',
                 'latitude' => null,
                 'longitude' => null,
@@ -182,4 +183,3 @@ class SearchController extends Controller
         return $articles;
     }
 }
-

@@ -21,7 +21,7 @@ class SpaceController extends Controller
            'facilityId' => $unit->facility->id
         ]);
 
-        $breadcumb = Container::getInstance()->makeWith(\App\Models\Breadcumb::class, [
+        $breadcrumb = Container::getInstance()->makeWith(\App\Models\Breadcrumb::class, [
             'address' => $unit->facility->address,
             'city' => $unit->facility->city,
             'state' => $unit->facility->state,
@@ -48,7 +48,7 @@ class SpaceController extends Controller
             'rewardAmount' => ('site.' . config('domain') . '.rewardAmount'),
             'noindex' => true,
             'displayPhone' => 'PUT_SPAREPHONE_BY_ZIP_HERE',
-            'breadcumb' => $breadcumb,
+            'breadcrumb' => $breadcrumb,
             'markers' => $gmarkers,
             'latitude' => $unit->facility->latitude,
             'longitude' => $unit->facility->longitude,

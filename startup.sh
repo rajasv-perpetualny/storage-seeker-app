@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-if [[ $DISABLE_OPCODE_CACHE = "true" || $DISABLE_OPCODE_CACHE = 1 ]]
-then
-	echo $'\nopcache.enable=0' >> /usr/local/etc/php/conf.d/php.ini
-fi
+# if [[ $DISABLE_OPCODE_CACHE = "true" || $DISABLE_OPCODE_CACHE = 1 ]]
+# then
+# 	echo $'\nopcache.enable=0' >> /usr/local/etc/php/conf.d/php.ini
+# fi
 
 php /opt/storageseeker/src/artisan optimize
 
 php /opt/storageseeker/src/artisan storage:link
 php /opt/storageseeker/src/artisan config:cache
+php /opt/storageseeker/src/artisan vendor:publish --provider="Corcel\Laravel\CorcelServiceProvider"
 
 
 # Apache gets grumpy about PID files pre-existing
