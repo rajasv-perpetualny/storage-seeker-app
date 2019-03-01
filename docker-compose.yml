@@ -17,10 +17,10 @@ services:
       APP_ENV: "local"
       APP_DEBUG: "true"
       APP_LOG_LEVEL: "debug"
-      APP_URL: "http://localhost:9107"
+      APP_URL: "localhost:9107"
       SOAP_API_KEY: "9243da5b21298f8d17fa368a459062eb"
-      GOOGLE_MAPS_JSAPI: "AIzaSyAhfreR3f0ZvGOUKgNyc2Td9MYqpUpTKDE"
-      GOOGLE_MAPS_API_KEY: "AIzaSyC2KqndMtZK75yoGPTdPsMAdc540iyfBZE&sensor=false&libraries=places"
+      GOOGLE_MAPS_JSAPI: "AIzaSyBRQGLiXKfxmttlb_5erzsH3wPuEntMesM"
+      GOOGLE_MAPS_API_KEY: "AIzaSyBRQGLiXKfxmttlb_5erzsH3wPuEntMesM&sensor=false&libraries=places"
       REDIS_CLIENT: "phpredis"
       REDIS_HOST: "storageseeker-redis"
       REDIS_PASSWORD: null

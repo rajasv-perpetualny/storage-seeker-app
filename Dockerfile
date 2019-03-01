@@ -1,5 +1,5 @@
 FROM php:7.1.11-apache
-LABEL maintainer SF Dev Team <dev@sparefoot.com>
+LABEL maintainer Perpetual Dev Team <dev@perpetualny.com>
 
 ARG APACHE_CONFDIR="/etc/apache2"
 ARG APACHE_ENVVARS="$APACHE_CONFDIR/envvars"
@@ -101,7 +101,7 @@ RUN curl -L https://nodejs.org/dist/v8.0.0/node-v8.0.0-linux-x64.tar.gz | tar xv
 
 # See http://sentinelstand.com/article/composer-install-in-dockerfile-without-breaking-cache
 WORKDIR /opt/storageseeker
-COPY . /opt/storageseeker
+COPY --chown=www-data:www-data . /opt/storageseeker
 
 WORKDIR /opt/storageseeker/src
 
@@ -115,18 +115,10 @@ RUN mkdir -p storage \
 && mkdir -p storage/debugbar \
 && chmod -R 775 storage
 
-
-# Standard test runner
-COPY ./run_tests.sh /opt/storageseeker/run_tests.sh
-
-# App startup script (run by Supervisor)
-COPY ./startup.sh /opt/storageseeker/startup.sh
-
-RUN composer install
-RUN npm install
-RUN chown -R 1000:1000 /opt/storageseeker/src
+# RUN composer install
+# RUN npm install
 RUN ln -sfn /opt/storageseeker/src/storage/app/public /opt/storageseeker/src/public/storage
-RUN npm run prod
+# RUN npm run prod
 EXPOSE 80
 
 CMD ["sh", "/opt/storageseeker/startup.sh"]
