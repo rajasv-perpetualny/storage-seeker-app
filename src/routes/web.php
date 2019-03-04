@@ -69,6 +69,8 @@ Route::any('/confirmation/{confirmationCode}',
 /**
  * Search
  */
+ Route::get('/self-storage/US/{state}/{city}/', 'SearchController@getResults');
+
 Route::get('/search/{location}/{type}', 'SearchController@getResults');
 
 Route::get('/search/{location}', 'SearchController@getResults');
@@ -76,7 +78,13 @@ Route::get('/search/{location}', 'SearchController@getResults');
 Route::match(['get', 'post'], '/search',
     ['as' => 'searchModule', 'uses' => 'SearchController@getResults']);
 
-Route::get('/state/{location}', 'SearchController@getResults');
+// Route::get('/search/{location}', 'SearchController@getResults');
+//
+// Route::match(['get', 'post'], '/search',
+//     ['as' => 'searchModule', 'uses' => 'SearchController@getResults']);
+
+
+// Route::get('/state/{location}', 'SearchController@getResults');
 
 /**
  * Facility
@@ -86,5 +94,5 @@ Route::post('/facility/{facilityId}/review',
 
 Route::get('/facility/{id}/',['as' => 'facilityModule', 'uses' => 'FacilityController@getFacilityDetails']);
 
-// Route::get('/state/{slug}', 'StateLandingController@getStatePage');
+Route::get('/self-storage/US/{state}/', 'StateLandingController@getStatePage');
 Route::get('/state/{slug}/data', 'StateLandingController@getStateData');

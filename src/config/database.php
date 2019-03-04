@@ -41,7 +41,7 @@ return [
 
         'wordpress' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '172.17.0.1'),
+            'host' => env('DB_HOST', '192.168.1.234'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'storageseeker_db'),
             'username' => env('DB_USERNAME', 'user'),

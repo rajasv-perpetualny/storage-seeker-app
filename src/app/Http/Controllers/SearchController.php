@@ -27,13 +27,13 @@ class SearchController extends Controller
      * @param  Request $request
      * @return view
      */
-    public function getResults(Request $request)
+    public function getResults(Request $request, $state = null, $city = null)
     {
         $page=$request->input('page', 1);
         $listings=$request->input('listingsPerPage', 10);
 
         // Default to Ashburn, VA if none specified
-        $location = (!is_null($request->input('location'))) ? $request->input('location') : "Ashburn, VA";
+        $location = (!is_null($city)) ? $city . ', ' . $state : ((!is_null($request->input('location'))) ? $request->input('location') : "Ashburn, VA");
         $moveInDate = $request->input('moveInDate', null);
         $typeStorage = $request->input('type');
         $sqft = $request->input('sqft');

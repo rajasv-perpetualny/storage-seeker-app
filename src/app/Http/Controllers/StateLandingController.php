@@ -8,8 +8,8 @@ class StateLandingController extends Controller
 {
 
 
-public function getStatePage(Request $request, $slug) {
-  $page = Post::type('state')->slug($slug)->first();
+public function getStatePage(Request $request, $state) {
+  $page = Post::type('state')->slug($state)->first();
   $featured = $page->acf->featured_cities;
   $data = [
     "pageData" => $page,
