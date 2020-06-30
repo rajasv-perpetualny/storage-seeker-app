@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Exceptions\SoapCallException;
 use App\Models\Facility;
 use App\Models\Unit;
+use Illuminate\Http\Request;
 use Illuminate\Container\Container;
 
 class FacilityController extends Controller
@@ -27,7 +28,7 @@ class FacilityController extends Controller
         parent::boot();
     }
 
-    public function getFacilityDetails($facilityId)
+    public function getFacilityDetails(Request $request, $state = null, $city = null, $facilityName, $facilityId)
     {
         $data= [];
         $page = 1;
@@ -92,15 +93,69 @@ class FacilityController extends Controller
                 'latitude' => $response->facility->latitude,
                 'longitude' => $response->facility->longitude,
                 'facilitiesNearby' => $facilitiesNearby,
-                'bodyClass' => "storageseeker facility"
+                'bodyClass' => "storageseeker facility",
+                'metaDescription' => 'Compare self storage unit prices and reserve a storage space for free at '.$response->facility->name.' in '.$response->facility->city.', '.$response->facility->state.'.',
+                'canonicalUrl' => '/self-storage/'.strtoupper($response->facility->state).'/'.str_slug(strtolower($response->facility->city), '-').'/'.str_slug(strtolower($response->facility->name), '-').'/'.$response->facility->id,
+
             ];
-        }else {
+        } else {
             $data = [
                 'error' => "We could not find the unit you are looking for.",
                 'bodyClass' => "storageseeker facility",
             ];
         }
-        return view('pages.facility', $data);
+        if(strtoupper($state) !== strtoupper($response->facility->state) || $city !==  strtolower(str_slug($response->facility->city, "-")) || $facilityName !==  strtolower(str_slug($response->facility->name, "-"))){
+          $searchData = [
+            'state' => strtoupper($response->facility->state),
+            'city' => strtolower(str_slug($response->facility->city, "-")),
+            'facilityName' => strtolower(str_slug($response->facility->name, "-")),
+            'facilityId' => $facilityId
+          ];
+          return redirect()->route('facilityModule', $searchData);
+        } else {
+          return view('pages.facility', $data);
+        }
+    }
+
+    public function getFacilityDetailsLegacy(Request $request, $facilityId)
+    {
+        $data= [];
+        $page = 1;
+        $perPage = 20;
+        /**
+         * Call to Search to make SoapAPI request
+         */
+        try {
+            $response = Container::getInstance()->makeWith(\App\Models\Facility::class, [
+                'facilityId' => $facilityId,
+            ]);
+            $reviews = Container::getInstance()->makeWith(\App\Models\Reviews::class, [
+                'facilityId' => $facilityId,
+            ]);
+
+        } catch (\SoapFault $e) {
+            error_log("Soap Client construct failed because: {$e->getMessage()}");
+            throw new SoapCallException($e->getMessage());
+        }
+
+
+        if(isset($response->responseCode) && $response->responseCode != -1) {
+
+            $searchData = [
+              'state' => strtoupper($response->facility->state),
+              'city' => strtolower(str_slug($response->facility->city, "-")),
+              'facilityName' => strtolower(str_slug($response->facility->name, "-")),
+              'facilityId' => $facilityId
+            ];
+            return redirect()->route('facilityModule', $searchData, 302);
+
+        } else {
+            $data = [
+                'error' => "We could not find the unit you are looking for.",
+                'bodyClass' => "storageseeker facility",
+            ];
+        }
+
     }
 
     /**

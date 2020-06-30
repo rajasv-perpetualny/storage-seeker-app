@@ -19,7 +19,7 @@
 
                     <div class="rating">
                         @if($reviews->numRatings)
-                            <p class="stars">
+                            <div class="stars">
                                 @for($starIterator=0; $starIterator<5; $starIterator++)
                                     @if($starIterator < floor($reviews->averageRating))
                                         <i class="icon-star review-star"></i>
@@ -29,14 +29,26 @@
                                         <i class="icon-star-empty review-star"></i>
                                     @endif
                                 @endfor
-                            </p>
-                            <p class="reviews"
-                               data-average="{{$reviews->averageRating}}"
-                               data-number="{{$reviews->numRatings}}" >
-                                <a href="#reviews"> See all {{$reviews->numRatings}} reviews </a></p>
+                                <p class="reviews"
+                                   data-average="{{$reviews->averageRating}}"
+                                   data-number="{{$reviews->numRatings}}" >
+                                    <a href="#reviews"> See all {{$reviews->numRatings}} reviews </a></p>
+                            </div>
                         @else
                             Be the first to <a href="#reviews"> leave a review</a>
                         @endif
+                    </div>
+                    <div class="demand-banner">
+                      <div class="icon">
+                        <img src="{{ url('/storage/images/ic_clock.svg') }}" alt="Book Now" title="Book Now" class="value-prop-image" width="37" height="37"/>
+
+                      </div>
+                      <div class="copy">
+                        <p>
+                          We are experiencing high demand in this area.<br/>
+Make sure you reserve a unit for free today to hold a storage space.
+                        </p>
+                      </div>
                     </div>
                 </div>
                 <div class="units">
@@ -83,6 +95,33 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
+                </div>
+                <div class="how-it-works">
+                  <div class="how-it-works-header">
+                    <h3>How it works</h3>
+                  </div>
+                  <div class="how-it-works-content">
+                    <div class="how-it-works-item">
+                      <img src="{{ url('/storage/images/ic_reserve.svg') }}" alt="Reserve" title="Reserve" class="value-prop-image" width="50" height="50"/>
+                      <span class="circle-number">1</span>
+                      <p>
+                        Reserve your<br/>
+                        storage unit for free
+                      </p>
+                    </div>
+                    <div class="how-it-works-item">
+                      <img src="{{ url('/storage/images/ic_facility.svg') }}" alt="Facility" title="Facility" class="value-prop-image" width="50" height="50"/>
+                      <span class="circle-number">2</span>
+                      <p>
+                      Visit the facility to finalize the rental
+                      </p>
+                    </div>
+                    <div class="how-it-works-item">
+                      <img src="{{ url('/storage/images/ic_move.svg') }}" alt="Move" title="Move" class="value-prop-image" width="50" height="50"/>
+                      <span class="circle-number">3</span>
+                      <p>Move-in!</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="hours">
                     <h2>Operating Hours</h2>

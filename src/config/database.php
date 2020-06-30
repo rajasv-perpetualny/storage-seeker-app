@@ -41,11 +41,11 @@ return [
 
         'wordpress' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '192.168.1.234'),
+            'host' => env('DB_HOST', '107.180.50.181'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'storageseeker_db'),
-            'username' => env('DB_USERNAME', 'user'),
-            'password' => env('DB_PASSWORD', 'user'),
+            'database' => env('DB_DATABASE', 'i1951079_wp2'),
+            'username' => env('DB_USERNAME', 'i1951079_wp2'),
+            'password' => env('DB_PASSWORD', 'U.fW6vi4jcKlIUCEnz564'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

@@ -5,7 +5,7 @@ $(function(){
     $('#page-preloader').css('height',$('#main').height());
     // ID redirection for reviews is happening through URL hash, collides with searchfilter init, adding gard
     if(window.location.hash && window.location.hash !== "#reviews"){
-        window.location = basePath + '/search?' + window.location.hash.substring(1,window.location.hash.length);
+        window.location = basePath + window.location.pathname + '?' + window.location.hash.substring(1,window.location.hash.length);
     }
     else{
         searchFilters.hideLoaders();
@@ -43,8 +43,9 @@ searchFilters.initSearch = function (){
         $('#search_source').val('ajax');
         $('#search_page').val(($('#search_page').val()*1)+1);
         var data = $("#search_form").serialize();
+
         $.ajax(this.href, {
-            url: basePath + '/search',
+            url: basePath + window.location.pathname,
             data: data,
             dataType:'json',
             type: 'POST',

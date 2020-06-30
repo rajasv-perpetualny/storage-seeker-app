@@ -1,20 +1,21 @@
 <div class="home">
     <div class="search">
         <div class="form">
-            {!! Form::open( ['url' => '/search', 'method' => 'post'] ) !!}
+            {!! Form::open( ['url' => '/search', 'method' => 'post', 'id' => 'home-form'] ) !!}
             <div class="location">
                 <div class="widget">
                     <div class="input-container">
-                    <label>Find self-storage near:</label>
-                        {!! Form::input('text', 'location', '', array(
+                        {!! Form::input('text', '', '', array(
                         'id' => 'search_location',
+                        'name' => 'location',
                         'required' => 'required',
                         'class' => 'form-control',
-                        'placeholder' => 'Enter a location',
-                        'autocomplete' => 'off'
+                        'placeholder' => 'Enter a city or zip code',
+                        'autocomplete' => 'off',
+                        'value' => ''
                         ) ) !!}
                     </div>
-                    <div class="input-container">
+                    <div class="input-container input-button">
                     <span class="input-group-btn submit" >
                         {!! Form::button('Find Units', array(
                         'type' => 'submit',

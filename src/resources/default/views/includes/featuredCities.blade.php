@@ -3,57 +3,34 @@
   <div id="featured-cities" class="featured-cities">
       <h3>Featured cities</h3>
       <ul>
-          <li><a id="city-landing-01" href="{{ url('/search', ['slug' => 'ca-san-diego']) }}">San Diego storage units</a></li>
-          <li><a id="city-landing-02" href="{{ url('/search', ['slug' => 'il-chicago']) }}">Chicago storage units</a></li>
-          <li><a id="city-landing-03" href="{{ url('/search', ['slug' => 'ga-atlanta']) }}">Atlanta storage units</a></li>
-          <li><a id="city-landing-04" href="{{ url('/search', ['slug' => 'tx-plano']) }}">Plano storage units</a></li>
-          <li><a id="city-landing-05" href="{{ url('/search', ['slug' => 'or-portland']) }}">Portland storage units</a></li>
-      </ul>
-      <ul>
-          <li><a id="city-landing-06" href="{{ url('/search', ['slug' => 'az-phoenix']) }}">Phoenix storage units</a></li>
-          <li><a id="city-landing-07" href="{{ url('/search', ['slug' => 'ny-brooklyn']) }}">Brooklyn storage units</a></li>
-          <li><a id="city-landing-08" href="{{ url('/search', ['slug' => 'nv-las-vegas']) }}">Las Vegas storage units</a></li>
-          <li><a id="city-landing-09" href="{{ url('/search', ['slug' => 'ca-los-angeles']) }}">Los Angeles storage units</a></li>
-          <li><a id="city-landing-10" href="{{ url('/search', ['slug' => 'tx-austin']) }}">Austin storage units</a></li>
-      </ul>
-      <ul>
-          <li><a id="city-landing-11" href="{{ url('/search', ['slug' => 'tx-dallas']) }}">Dallas storage units</a></li>
-          <li><a id="city-landing-12" href="{{ url('/search', ['slug' => 'co-denver']) }}">Denver storage units</a></li>
-          <li><a id="city-landing-13" href="{{ url('/search', ['slug' => 'tx-houston']) }}">Houston storage units</a></li>
-          <li><a id="city-landing-14" href="{{ url('/search', ['slug' => 'ny-new-yor']) }}">New York storage units</a></li>
-          <li><a id="city-landing-15" href="{{ url('/search', ['slug' => 'tx-el-paso']) }}">El Paso storage units</a></li>
+          <li><a id="city-landing-01" href="{{ url('/self-storage/CA', ['slug' => 'san-diego']) }}">San Diego Self-Storage</a></li>
+          <li><a id="city-landing-02" href="{{ url('/self-storage/IL', ['slug' => 'chicago']) }}">Chicago Self-Storage</a></li>
+          <li><a id="city-landing-03" href="{{ url('/self-storage/GA', ['slug' => 'atlanta']) }}">Atlanta Self-Storage</a></li>
+          <li><a id="city-landing-04" href="{{ url('/self-storage/TX', ['slug' => 'plano']) }}">Plano Self-Storage</a></li>
+          <li><a id="city-landing-05" href="{{ url('/self-storage/OR', ['slug' => 'portland']) }}">Portland Self-Storage</a></li>
+          <li><a id="city-landing-06" href="{{ url('/self-storage/AZ', ['slug' => 'phoenix']) }}">Phoenix Self-Storage</a></li>
+          <li><a id="city-landing-07" href="{{ url('/self-storage/NY', ['slug' => 'brooklyn']) }}">Brooklyn Self-Storage</a></li>
+          <li><a id="city-landing-08" href="{{ url('/self-storage/NV', ['slug' => 'las-vegas']) }}">Las Vegas Self-Storage</a></li>
+          <li><a id="city-landing-09" href="{{ url('/self-storage/CA', ['slug' => 'los-angeles']) }}">Los Angeles Self-Storage</a></li>
+          <li><a id="city-landing-10" href="{{ url('/self-storage/TX', ['slug' => 'austin']) }}">Austin Self-Storage</a></li>
+          <li><a id="city-landing-11" href="{{ url('/self-storage/TX', ['slug' => 'dallas']) }}">Dallas Self-Storage</a></li>
+          <li><a id="city-landing-12" href="{{ url('/self-storage/CO', ['slug' => 'denver']) }}">Denver Self-Storage</a></li>
+          <li><a id="city-landing-13" href="{{ url('/self-storage/TX', ['slug' => 'houston']) }}">Houston Self-Storage</a></li>
+          <li><a id="city-landing-14" href="{{ url('/self-storage/NY', ['slug' => 'manhattan']) }}">New York Self-Storage</a></li>
+          <li><a id="city-landing-15" href="{{ url('/self-storage/TX', ['slug' => 'el-paso']) }}">El Paso Self-Storage</a></li>
       </ul>
   </div>
   @endif
   @if(!empty($featuredCities))
-  <div id="featured-cities" class="featured-cities">
-
-  <h3>Featured cities in {{ $pageData->title }}</h3>
+  <div id="featured-cities" class="featured-cities states-list">
+  @if(isset($pageData))
+  <h3 class="state-title">{{ $pageData->title }} Cities</h3>
+  @else
+  <h3 class="state-title">Featured Cities</h3>
+  @endif
     <ul>
     @foreach($featuredCities as $city)
-      @if($loop->index >= $loop->count/3)
-        @break
-      @endif
-      <li><a href="{{ url('/search', ['slug' => $city['slug']]) }}">{{$city['name']}} storage units</a></li>
-    @endforeach
-    </ul>
-    <ul>
-    @foreach($featuredCities as $city)
-      @if($loop->index <= $loop->count/3)
-        @continue
-      @endif
-      @if($loop->index > ($loop->count*2)/3)
-        @break
-      @endif
-      <li><a href="{{ url('/search', ['slug' => $city['slug']]) }}">{{$city['name']}} storage units</a></li>
-    @endforeach
-    </ul>
-    <ul>
-    @foreach($featuredCities as $city)
-      @if($loop->index <= ($loop->count*2)/3)
-        @continue
-      @endif
-      <li><a href="{{ url('/search', ['slug' => $city['slug']]) }}">{{$city['name']}} storage units</a></li>
+      <li><a href="{{ url('/self-storage/'.explode(', ',$city['title'])[1], ['slug' => str_replace('-'. strtolower(explode(', ',$city['title'])[1]), '', str_slug($city['title'], '-'))]) }}">{{explode(', ',$city['title'])[0]}} Self-Storage</a></li>
     @endforeach
     </ul>
   </div>

@@ -3,23 +3,137 @@ body.search {
   //noinspection SassScssResolvedByNameOnly
   main {
     margin: 0;
-
-    .map, .oops {
-      position: absolute;
+    .search-container {
+      display: flex;
+      position: relative;
+      top: -6px;
+      justify-content: flex-end;
+      @media (max-width: $screen-md){
+        flex-wrap: wrap;
+      }
+    }
+    .map-container, .oops {
+      position: relative;
       top: 0;
       left: 0;
       bottom: 0;
-      width: 35%;
+      width: 38%;
+      flex: 0 0 38%;
       border-right: 1px solid $gray-lighter;
-
-      @media (max-width: $screen-sm) {
-        width: 0;
+      &.fixed {
+        position: fixed;
+      }
+      @media (max-width: 1280px) {
+        flex: 0 0 45%;
+        width: 45%;
+      }
+      @media (max-width: $screen-md) {
+        position: relative !important;
+        flex: 0 0 100%;
+        order: 2;
       }
 
       #map-canvas {
         height: 100%;
         margin: 0;
         padding: 0;
+      }
+    }
+    .content-container {
+      padding-left: 20px;
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        order: -2;
+      }
+      .default-content, .custom-content {
+        padding-top: 20px;
+      }
+      .custom-content-top{
+        order: -1;
+        padding-bottom: 30px;
+        padding-top: 0;
+      }
+      .content-image {
+        img {
+          max-width: 100%;
+        }
+      }
+      @media (max-height: 900px) {
+        .bottom-left-content {
+          display: none;
+        }
+      }
+      @media (max-height: 700px) {
+        .price-section-left {
+          display: none;
+        }
+      }
+    }
+    .map-container, .content-container {
+      background-color: #F7F7F7;
+
+      h2 {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        color: #232740;
+        line-height: 28px;
+        font-weight: 600;
+        margin: unset;
+      }
+      h3 {
+        font-size: 20px;
+        line-height: 27px;
+        font-weight: 400;
+        margin-top: 0;
+      }
+      .title {
+        font-size: 18px;
+        line-height: 21px;
+        padding-top: 0;
+      }
+      .city-stats {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .stat-row {
+          flex: 0 0 100%;
+          display: flex;
+          border-bottom: 1px solid #DADADA;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          &.header-row {
+            .stat-col {
+              font-weight: 600;
+            }
+          }
+          .stat-col {
+            flex: 0 0 33%;
+          }
+        }
+      }
+    }
+
+    .low-height-show {
+      padding-bottom: 30px;
+    }
+    @media (min-height: 900px) {
+      .low-height-show {
+        display: none;
+      }
+    }
+    @media (max-height: 700px) {
+      .price-section-left {
+        display: none;
+      }
+    }
+
+    @media (min-height: 700px) {
+      .price-section-bottom{
+        display: none;
       }
     }
 
@@ -69,6 +183,7 @@ body.search {
 
 
     .map {
+      height: 350px;
       @media (max-width: $screen-sm){
         display: none;
       }
@@ -102,26 +217,44 @@ body.search {
 
     .search {
       margin: 0;
-      width: 65%;
-      position: absolute;
-      overflow-y: scroll;
+      height: calc(100% - 60px);
+      max-width: 62%;
+      flex: 0 0 62%;
+      position: relative;
       right: 0;
       bottom: 0;
       box-shadow: -5px 0 19px -9px rgba(0,0,0,0.75);
 
-      @media (max-width: $screen-sm) {
+      @media (max-width: 1280px) {
+        flex: 0 0 55%;
+        max-width: 55%;
+      }
+
+      @media (max-width: $screen-md) {
         width: 100%;
+        flex: 0 0 100%;
         position: relative;
         top: 0;
-        height: 100%;
-        min-height: calc(100vh - 95px);
+        min-height: unset;
+        max-width: unset;
       }
 
       @media (max-width: $screen-600) {
         width: 100%;
       }
 
-      .form {
+      .h2-container {
+        padding: 20px;
+        background-color: #F7F7F7;
+        h2 {
+          margin: unset;
+          font-size: 32px;
+          line-height: 44px;
+          color: #333330;
+        }
+      }
+
+      .form-container {
         @include make-xs-column(12, 0);
         border-top: 1px solid $gray-lighter;
         background-color: $content-bg;
@@ -440,17 +573,18 @@ body.search {
         }
 
 
-        h1 {
+        h2 {
           color: $gray;
           display: inline-block;
           vertical-align: middle;
           margin: 10px 2px;
+          text-transform: capitalize;
 
           font-weight: 400;
           font-size: 22px;
           color: $text-color;
           margin-bottom: 20px;
-          width: 50%;
+          width: 70%;
           line-height: 1.4;
 
           @media (max-width: $screen-sm){
@@ -500,18 +634,39 @@ body.search {
           border-radius: 3px;
           margin: 0px 1px 20px 1px;
           padding: 0;
-
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
           .facility-wrapper{
             padding: 20px;
             clear: both;
             float: left;
-            display: block;
-
+            display: flex;
+            flex-wrap: wrap;
+            flex: 0 0 100%;
             @media (max-width: $screen-sm){
               padding: 12px;
             }
           }
 
+          .view-more-btn {
+            flex: 0 0 15%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, #12B3B9 0%, #11A5AB 100%);
+            border: unset;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            &:hover {
+              background: linear-gradient(to bottom, #139da2 0%, #11878b 100%);
+            }
+            a {
+              color: #FFFFFF;
+              text-decoration: unset;
+            }
+          }
           .more{
             clear: both;
             display: block;
@@ -535,6 +690,35 @@ body.search {
             @include make-md-column(2, 0);
             @include make-sm-column(3, 0);
             @include make-xs-column(4, 0);
+            max-width: 25%;
+            flex: 0 0 20%;
+            @media (max-width: $screen-xl) {
+              width: 150px;
+              height: 150px;
+              flex: 0 0 180px;
+
+            }
+
+            @media (max-width: $screen-lg) {
+              width: 125px;
+              height: 125px;
+              flex: 0 0 155px;
+
+            }
+
+            @media (max-width: $screen-md) {
+              width: 110px;
+              height: 110px;
+              flex: 0 0 140px;
+
+            }
+
+            @media (max-width: $screen-sm) {
+              width: 100%;
+              height: auto;
+              flex: 0 0 100%;
+              max-width: unset;
+            }
 
             .crop {
               width: 200px;
@@ -542,7 +726,8 @@ body.search {
               border: 1px solid $gray-lighter;
               background-color: $gray-lighter;
               overflow: hidden;
-
+              display: flex;
+              justify-content: center;
               @media (max-width: $screen-xl) {
                 width: 150px;
                 height: 150px;
@@ -559,8 +744,8 @@ body.search {
               }
 
               @media (max-width: $screen-sm) {
-                width: 100px;
-                height: 100px;
+                width: 100%;
+                height: auto;
               }
 
               @media (max-width: $screen-xxs) {
@@ -588,8 +773,8 @@ body.search {
                 }
 
                 @media (max-width: $screen-sm) {
-                  width: 75px;
-                  height: 75px;
+                  width: 100%;
+                  height: auto;
                 }
 
                 @media (max-width: $screen-xxs) {
@@ -605,9 +790,13 @@ body.search {
             @include make-sm-column(9, 0);
             @include make-xs-column(8, 0);
             padding-left: 0;
-
+            flex: 1 0 75%;
             h2 {
               margin-top: 0;
+            }
+
+            @media (max-width: $screen-sm) {
+              flex: 0 0 100%;
             }
 
             .details-wrapper{
@@ -616,12 +805,16 @@ body.search {
 
               @media (max-width: $screen-sm){
                 width: 100%;
+                padding-top: 20px;
               }
 
-              h2{
+              h3{
                 font-size: 20px;
-                font-weight: 400;
+                font-weight: 600;
                 font-family: $font-family-sans-serif;
+                @media (max-width: $screen-sm) {
+                  text-align: left;
+                }
               }
 
               p{
@@ -641,7 +834,7 @@ body.search {
               }
 
               .call-now {
-                padding-left: 10px;
+                // padding-left: 10px;
                 cursor: pointer;
                 cursor: hand;
                 display: none;
@@ -683,8 +876,8 @@ body.search {
             padding: 0;
             margin-top: $line-height-computed;
             font-weight: $inventory-item-font-weight;
-            font-size: $font-size-small;
-
+            font-size: 14px;
+            flex: 0 0 100%;
             @media (max-width: $screen-sm){
               width: 100%;
             }
@@ -722,15 +915,19 @@ body.search {
                 @include make-xs-column(8, 0);
                 text-align: right;
                 font-size: $font-size-base;
-
+                float: right!important;
                 p {
                   @include pull-right;
+                }
+                a {
+                  display: block;
+
                 }
               }
 
               .promotion {
-                @include make-sm-column(12, 0);
-                @include make-xs-column(12, 0);
+                @include make-sm-column(6, 0);
+                @include make-xs-column(4, 0);
                 color: $promotion-color;
               }
             }
@@ -756,11 +953,15 @@ body.search {
           @include make-xs-column(12, 0);
           margin-top: 10px;
           margin-bottom: 25px;
+          font-weight: 600;
           text-align: center;
 
           button {
             @extend .btn-primary;
             width: 100%;
+            background: linear-gradient(180deg, #12B3B9 0%, #11A5AB 100%);
+            border: unset;
+            font-weight: 600;
           }
 
           button:focus, button:active { outline: none; }

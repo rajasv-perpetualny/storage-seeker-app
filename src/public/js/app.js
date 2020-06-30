@@ -753,7 +753,7 @@ $(function () {
     $('#page-preloader').css('height', $('#main').height());
     // ID redirection for reviews is happening through URL hash, collides with searchfilter init, adding gard
     if (window.location.hash && window.location.hash !== "#reviews") {
-        window.location = basePath + '/search?' + window.location.hash.substring(1, window.location.hash.length);
+        window.location = basePath + window.location.pathname + '?' + window.location.hash.substring(1, window.location.hash.length);
     } else {
         searchFilters.hideLoaders();
         searchFilters.initSearch();
@@ -790,8 +790,9 @@ searchFilters.initSearch = function () {
         $('#search_source').val('ajax');
         $('#search_page').val($('#search_page').val() * 1 + 1);
         var data = $("#search_form").serialize();
+
         $.ajax(this.href, {
-            url: basePath + '/search',
+            url: basePath + window.location.pathname,
             data: data,
             dataType: 'json',
             type: 'POST',
@@ -11568,18 +11569,34 @@ var StarPicker = __webpack_require__(4);
 var Phone = __webpack_require__(45);
 
 $(document).ready(function () {
-   var starPicker = new StarPicker(jQuery);
+  var starPicker = new StarPicker(jQuery);
 
-   starPicker.init();
+  starPicker.init();
 
-   if (typeof google != 'undefined') {
-      place = new Places(google);
-      place.factoryAutoComplete('search_location');
-      var phone = new Phone(jQuery);
-      phone.init();
-      phone.initCallNow();
-   }
+  if (typeof google != 'undefined') {
+    place = new Places(google);
+    place.factoryAutoComplete('search_location');
+    var phone = new Phone(jQuery);
+    phone.init();
+    phone.initCallNow();
+  }
+  if ($('.map').length) {
+    fixMapToTop();
+    $(document).scroll(fixMapToTop);
+  }
 });
+
+function fixMapToTop() {
+  if ($('.search-container').offset().top - $(window).scrollTop() > 0) {
+    if ($('.map-container').hasClass('fixed')) {
+      $('.map-container').removeClass('fixed');
+    }
+  } else {
+    if (!$('.map-container').hasClass('fixed')) {
+      $('.map-container').addClass('fixed');
+    }
+  }
+}
 
 /***/ }),
 /* 13 */
@@ -52005,7 +52022,7 @@ module.exports = function () {
             var element = document.getElementById(id);
             if (element) {
                 var autoCompleteOptions = {
-                    types: ['geocode'],
+                    types: ['(cities)'],
                     componentRestrictions: {
                         country: 'us'
                     }
@@ -52084,7 +52101,7 @@ module.exports = function () {
 /* 46 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Cannot find module 'node-sass'\n    at Function.Module._resolveFilename (module.js:485:15)\n    at Function.Module._load (module.js:437:25)\n    at Module.require (module.js:513:17)\n    at require (internal/module.js:11:18)\n    at Object.<anonymous> (/opt/storageseeker/src/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:569:30)\n    at Object.Module._extensions..js (module.js:580:10)\n    at Module.load (module.js:503:32)\n    at tryModuleLoad (module.js:466:12)\n    at Function.Module._load (module.js:458:3)\n    at Module.require (module.js:513:17)\n    at require (internal/module.js:11:18)\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:18:17)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:365:2)\n    at NormalModule.doBuild (/opt/storageseeker/src/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/opt/storageseeker/src/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/opt/storageseeker/src/node_modules/webpack/lib/Compilation.js:157:10)\n    at runLoaders (/opt/storageseeker/src/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:172:11\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:32:11)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:176:18\n    at loadLoader (/opt/storageseeker/src/node_modules/loader-runner/lib/loadLoader.js:47:3)\n    at iteratePitchingLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/opt/storageseeker/src/node_modules/loader-runner/lib/LoaderRunner.js:365:2)\n    at NormalModule.doBuild (/opt/storageseeker/src/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/opt/storageseeker/src/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/opt/storageseeker/src/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/opt/storageseeker/src/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/opt/storageseeker/src/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/opt/storageseeker/src/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /opt/storageseeker/src/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/opt/storageseeker/src/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/opt/storageseeker/src/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/opt/storageseeker/src/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/opt/storageseeker/src/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:95:7)\n    at process._tickCallback (internal/process/next_tick.js:161:9)");
 
 /***/ })
 /******/ ]);

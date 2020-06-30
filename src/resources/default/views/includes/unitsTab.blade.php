@@ -36,6 +36,6 @@
         @endif
     </div>
     <div class="link">
-        <a id="unit-continue-{{$unit->spaceId}}" href="{{config('host')}}/unit/{{$unit->spaceId}}" id="unit-{{$unit->spaceId}}">continue</a>
+        <a id="unit-continue-{{$unit->spaceId}}" href="{{config('host')}}/self-storage/{{$result->state}}/{{str_slug($result->city, '-')}}/{{str_slug($result->name, '-')}}/{{$result->id}}/unit/{{$unit->spaceId}}" id="unit-{{$unit->spaceId}}">continue</a>
     </div>
 </div>

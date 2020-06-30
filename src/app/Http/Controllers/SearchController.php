@@ -13,6 +13,7 @@ use App\Providers\AppServiceProvider;
 use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 use App\Models\Unit;
+use Corcel\Model\Post;
 
 use App\Models\Search;
 use Validator;
@@ -34,6 +35,7 @@ class SearchController extends Controller
 
         // Default to Ashburn, VA if none specified
         $location = (!is_null($city)) ? $city . ', ' . $state : ((!is_null($request->input('location'))) ? $request->input('location') : "Ashburn, VA");
+
         $moveInDate = $request->input('moveInDate', null);
         $typeStorage = $request->input('type');
         $sqft = $request->input('sqft');
@@ -77,53 +79,38 @@ class SearchController extends Controller
             $paginated = (new \Illuminate\Pagination\LengthAwarePaginator($response->searchResult->listings, $response->searchResult->numHits, 10,[]));
             $paginated->setPath('/search?'.http_build_query(request()->all()));
             if(is_array($response->searchResult->listings) && count($response->searchResult->listings)>0){
-                $city = $response->searchResult->listings[0]->city;
-                $state = $response->searchResult->listings[0]->state;
+              list($city, $state) = explode(", ", $response->searchResult->location);
+              $state = explode(" ", $state)[0];
+
+              foreach($response->searchResult->listings as $listing){
+
+                if(stripos(str_slug(strtolower($location), '-'), str_slug($listing->city, '-')) !== false){
+                  $city = $listing->city;
+                  break;
+                }
+              }
+
+              $slug = str_slug(strtolower($city . " " . $state), "-");
             }
             else{
-                list($city, $state) = explode(" ", $response->searchResult->location);
+              list($city, $state) = explode(", ", $response->searchResult->location);
             }
 
-            $breadcrumb = Container::getInstance()->makeWith(\App\Models\Breadcrumb::class, [
-                'city' => $city,
-                'state' => $state,
-                'address' => null,
-                'zip' => null,
-                'facilityId' => null,
-                'facilityName' => null
-            ]);
-            $gmarkers = Container::getInstance()->makeWith(\App\Models\GoogleMarkers::class,[
-                'listings' => $response->searchResult->listings,
-                'type' => 'search'
-            ]);
-            $data = [
-                'titlePage' => 'Your Search For The Best Storage and Prices | StorageSeeker',
-                'nocookie' => false, //Request::instance()->noCookie,
-                'result' => $paginated,
-                'titleH2' => explode(',',$response->searchResult->location)[0],
-                'siteType' => 'DEFAULT',
-                'siteName' => 'AAA',
-                'isBroadened' => false,
-                'city' => 'Default',
-                'fullState' => 'Default',
-                'siteId' => config('domain'),
-                'aaaActiveHeader' => false,
-                'aaaEligibleHeader' => false,
-                'alternateUnits' => [],
-                'breadcrumb' => $breadcrumb,
-                'markers' => $gmarkers,
-                'latitude' => $response->searchResult->latitude,
-                'longitude' => $response->searchResult->longitude,
-                'location' => $location,
-                'moveInDate'=>$moveInDate,
-                'typeStorage' => $typeStorage,
-                'sqft' => $sqft,
-                'order' => $order,
-                'amenities' => $amenities,
-                'distance' => $distance,
-                'bodyClass' => "storageseeker search",
-                'source' => $source
-            ];
+            $searchData = array(
+              'state' => $state,
+              'city' => str_slug(strtolower($city), "-")
+            );
+            $slug = str_slug(strtolower($city . " " . $state), "-");
+            $explodedLocation = explode(" ", $response->searchResult->location);
+            $cityPage = Post::type('city')->slug($slug)->first();
+            if(is_object($cityPage) || $location === end($explodedLocation)){
+              return redirect()->route('cityModule', $searchData, 301);
+            } else {
+              $redirectData = array(
+                'location' => end($explodedLocation)
+              );
+              return redirect()->route('searchExtended', $redirectData);
+            }
         }
         else {
             $paginated = (new \Illuminate\Pagination\LengthAwarePaginator([], 0, 10,[]));
@@ -168,7 +155,6 @@ class SearchController extends Controller
         if($source == 'ajax'){
             $view = 'includes.results';
         }
-        return view($view, $data);
     }
 
     public function getArticles($location){

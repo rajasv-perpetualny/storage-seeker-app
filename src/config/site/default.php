@@ -8,5 +8,5 @@
 
 return [
     'phone' => '(877) 449-1281',
-    'soap_api_key' => '4bab86ed8a16d764fcbe51d8d706907b',
+    'soap_api_key' => 'c0d780abac6cc97353cdc69f22d7f8b5',
 ];

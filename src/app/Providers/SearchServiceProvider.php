@@ -47,7 +47,7 @@ class SearchServiceProvider extends ServiceProvider
                 ],
             ];
             if(empty($params['order'])) {
-                $this->data['query']['sort'] = config('domain')=='aaa' ? 'aaa' : 'default';
+                $this->data['query']['sort'] = config('domain')=='aaa' ? 'aaa' : 'distance';
             } else {
                 $this->data['query']['sort'] = $params['order'];
             }

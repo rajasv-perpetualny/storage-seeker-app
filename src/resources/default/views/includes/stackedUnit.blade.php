@@ -3,7 +3,7 @@
 @else
 <li class="unit {{$class}}">
     <div class="description">
-        <a id="facility-unit-description-{{$unit->id}}" href="{{config('host')}}/unit/{{$unit->id}}">
+        <a id="facility-unit-description-{{$unit->id}}" href="{{$url}}/unit/{{$unit->id}}">
             {{$unit->width}}'
             @if(!($unit->type=="Parking" && $unit->depth==0)) &nbsp;x&nbsp; {{$unit->depth}}' @endif
             &nbsp; {{$unit->type}}
@@ -11,16 +11,25 @@
     </div>
     @if (date($maxReservableDate) >= date('-2days'))
         <div class="price">
-            <a id="facility-unit-price-{{$unit->id}}" href="{{config('host')}}/unit/{{$unit->id}}">${{ number_format( $unit->sparefootPriceParsed < $unit->priceParsed ? $unit->sparefootPriceParsed :  $unit->priceParsed, 2) }}</a>
+          @if($unit->sparefootPriceParsed < $unit->priceParsed )
+          <a id="facility-unit-price-{{$unit->id}}" href="{{$url}}/unit/{{$unit->id}}">${{ number_format( $unit->sparefootPriceParsed, 2) }}</a>
+          @else
+            <a id="facility-unit-price-{{$unit->id}}" href="{{$url}}/unit/{{$unit->id}}">${{ number_format( $unit->priceParsed, 2) }}</a>
+          @endif
         </div>
         @if(!empty($unit->promotion))
-        <div class="promotion">
-            <a id="facility-unit-promotion-{{$unit->id}}" href="{{config('host')}}/unit/{{$unit->id}}">{{$unit->promotion}}</a>
+        <div class="description promotion">
+            <a id="facility-unit-promotion-{{$unit->id}}" href="{{$url}}/unit/{{$unit->id}}">{{$unit->promotion}}</a>
         </div>
+        @endif
+        @if($unit->sparefootPriceParsed < $unit->priceParsed )
+          <div class="price">
+            <del><a id="facility-unit-price-{{$unit->id}}-striked" href="{{$url}}/unit/{{$unit->id}}">${{ number_format( $unit->priceParsed, 2) }}</a></del>
+          </div>
         @endif
     @else
     <div class="out-of-range">
-        <a id="facility-unit-outofrange-{{$unit->id}}" href="{{config('host')}}/unit/{{$unit->id}}">Out of date range.</a>
+        <a id="facility-unit-outofrange-{{$unit->id}}" href="{{$url}}/unit/{{$unit->id}}">Out of date range.</a>
     </div>
     @endif
 </li>

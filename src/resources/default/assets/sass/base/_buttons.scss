@@ -75,6 +75,10 @@ a.btn {
 }
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  background: linear-gradient(180deg, #12B3B9 0%, #11A5AB 100%);
+  border: unset;
+  border-radius: 4px;
+  box-shadow: 0 2px 17px 0 rgba(0,0,0,0.15);
 }
 // Success appears as green
 .btn-success {

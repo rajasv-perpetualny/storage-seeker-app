@@ -26,4 +26,20 @@ $(document).ready(() => {
      phone.init();
      phone.initCallNow();
   }
+  if($('.map').length){
+    fixMapToTop();
+    $(document).scroll(fixMapToTop);
+  }
 });
+
+function fixMapToTop(){
+  if($('.search-container').offset().top - $(window).scrollTop() > 0) {
+    if($('.map-container').hasClass('fixed')){
+      $('.map-container').removeClass('fixed');
+    }
+  } else {
+    if(!$('.map-container').hasClass('fixed')){
+      $('.map-container').addClass('fixed');
+    }
+  }
+}

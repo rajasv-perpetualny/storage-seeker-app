@@ -8,7 +8,7 @@ module.exports = class Places {
         let element = document.getElementById(id);
         if (element) {
             let autoCompleteOptions = {
-                types: ['geocode']
+                types: ['(cities)']
                 , componentRestrictions: {
                     country: 'us'
                 }

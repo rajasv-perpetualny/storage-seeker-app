@@ -10,16 +10,20 @@ body.facility {
   }
 
   main {
-
+    background-color: #F7F7F7;
     nav.breadcrumb ul {
       margin: auto;
       max-width: 1280px;
       padding: 0 15px;
+      @media (max-width: $screen-sm){
+
+      }
     }
 
     .facility {
       @include clearfix;
-      margin: 20px auto;
+      margin: auto;
+      padding: 20px 0;
       max-width: 1280px;
 
       @media (max-width: $screen-xs) {
@@ -75,6 +79,49 @@ body.facility {
               a {
                 margin: 0 10px;
               }
+              .reviews {
+                display: inline-block;
+              }
+            }
+          }
+
+          .demand-banner {
+            margin-top: 5px;
+            display: flex;
+            width: 100%;
+            background-color: #F88525;
+            border-radius: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .icon {
+              flex: 0 0 5%;
+              display: flex;
+              align-items: center;
+              @media (max-width: $screen-sm){
+                flex: 0 0 100%;
+                justify-content: center;
+                padding-top: 20px;
+              }
+            }
+            .copy {
+              flex: 0 0 80%;
+              @media (max-width: $screen-sm){
+                flex: 0 0 100%;
+                padding-left: 30px;
+                padding-right: 30px;
+              }
+            }
+
+            p {
+              font-size: 15px;
+              line-height: 20px;
+              text-align: center;
+              padding-top: 14px;
+              padding-bottom: 8px;
+              color: #FFFFFF;
+              font-weight: 600;
+
             }
           }
 
@@ -124,12 +171,20 @@ body.facility {
                 display: table;
                 padding: 0 10px;
                 margin: 0;
-
+                @media (max-width: $screen-sm){
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                }
                 .details {
                   @include clearfix;
                   display: table-cell;
                   vertical-align: middle;
                   width: 50%;
+
+                  @media (max-width: $screen-sm){
+                    flex: 0 0 100%;
+                  }
 
                   .details-table{
                     display: table;
@@ -201,6 +256,9 @@ body.facility {
                     }
                     font-weight: $headings-font-weight;
                   }
+                  @media (max-width: $screen-sm){
+                    flex: 0 0 100%;
+                  }
                 }
 
                 .link {
@@ -211,10 +269,18 @@ body.facility {
                   a {
                     @extend .btn;
                     @extend .btn-primary;
+                    background: linear-gradient(180deg, #12B3B9 0%, #11A5AB 100%);
+
+                    border: unset;
                     margin: 20px 0;
                     height: 40px;
                     line-height: 40px;
                     padding: 0 20px;
+                  }
+                  @media (max-width: $screen-sm){
+                    flex: 0 0 100%;
+                    display: flex;
+                    justify-content: center;
                   }
                 }
               }
@@ -245,6 +311,63 @@ body.facility {
           -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
           border-radius: 3px;
+        }
+
+        .how-it-works {
+          border-radius: 3px;
+          background-color: rgba(255,255,255,0.95);
+          margin-top: 20px;
+            .how-it-works-header {
+              background-color: #FFF8F2;
+              border-radius: 3px 3px 0 0;
+              text-align: center;
+              padding: 12px 0px;
+              text-transform: uppercase;
+              font-size: 16px;
+              font-weight: 600;
+              letter-spacing: 0.8px;
+              line-height: 22px;
+              color: #262626;
+              h3 {
+                margin: 0;
+              }
+            }
+            .how-it-works-content {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              .how-it-works-item {
+                flex: 0 0 33%;
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 16px;
+                @media (max-width: $screen-sm){
+                  flex: 0 0 100%;
+                }
+                .circle-number {
+                  height: 16px;
+                  width: 16px;
+                  background: #F88526;
+                  border-radius: 30px;
+                  text-align: center;
+                  font-size: 12px;
+                  line-height: 18px;
+                  color: #FFFFFF;
+                  font-weight: 600;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin: auto;
+                  margin-top: 14px;
+                  margin-bottom: 10px;
+                }
+                p {
+                  font-size: 13px;
+                  line-height: 17px;
+                  font-weight: bold;
+                }
+              }
+            }
         }
 
         .hours {
@@ -357,10 +480,9 @@ body.facility {
 
       @include make-xs-column(12, 0);
       border-top: 1px solid $gray-lighter;
-      background-color: $content-bg;
-      margin-top: 30px;
+      background-color: #F7F7F7;
       padding: 50px 5%;
-
+      padding-top: 80px;
       h2{
         font-size: 24px;
         font-weight: 400;

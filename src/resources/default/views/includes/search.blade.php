@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form-container">
     {!! Form::open( ['url' => '/search', 'method' => 'post', 'id'=>'search_form'] ) !!}
     <div class="location">
         <div class="widget-wrapper">
@@ -9,7 +9,7 @@
                 <div class="input-group">
                     <label>Find self-storage near:</label>
                     <input id="search_location" name="location" required="required"
-                           class="form-control user-success" value="{{$location}}" placeholder="Enter a location"
+                           class="form-control user-success" placeholder="Enter a location"
                            autocomplete="off" type="text">
                 </div>
                 <span class="input-group-btn submit">

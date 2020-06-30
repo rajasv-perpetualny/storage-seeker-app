@@ -68,7 +68,22 @@ body {
       }
     }
   }
-
+  input::-webkit-datetime-edit-year-field{
+                color: #333333!important;
+                opacity: 1;
+              }
+  input::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
   main {
     padding: 0;
 

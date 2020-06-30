@@ -7,7 +7,7 @@
             </div>
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="{{ url('size-guide') }}">Storage Size Guide</a></li>
+                    <li><a href="{{ url('size-guides') }}">Storage Size Guide</a></li>
                     <li><a href="http://blog.storageseeker.com">Blog</a></li>
                 </ul>
             </nav>
@@ -27,7 +27,7 @@
 
             <nav class="extra-links">
                 <ul>
-                    <li><span id="near-me">Find Storage Near Me</span></li>
+                    <li><a href="{{ url('/find-storage') }}">Find Storage Near Me</a></li>
                     <li><a href="{{ url('/terms') }}">Terms & Conditions</a></li>
                     <li><a href="{{ url('/privacy') }}">Privacy Policy</a></li>
                     <li><a href="{{ url('/legal') }}">Legal & Company Info</a></li>

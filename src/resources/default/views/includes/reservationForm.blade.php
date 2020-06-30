@@ -1,4 +1,4 @@
-{!! Form::open( [ 'name'=>'reservation', 'url' => '/unit/'.$spaceId, 'method' => 'post', 'id'=>'reservation_form'] ) !!}
+{!! Form::open( [ 'name'=>'reservation', 'url' => '/reservation/'.$spaceId, 'method' => 'post', 'id'=>'reservation_form'] ) !!}
 <?php
 /* *
 {% if errors is not empty %}
@@ -52,7 +52,7 @@
 </div>
 
 <div>
-    <label class="control-label required" for="reservation_moveInDate">Move in date *</label>
+    <label class="control-label required" for="reservation_moveInDate">Estimated move in date *</label>
     {!! Form::input('date', 'move_in_date', is_null(old('move_in_date')) ? date('Y-m-d', time()) : old('move_in_date'), array(
         'id' => 'reservation_moveInDate',
         'required' => 'required',

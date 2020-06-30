@@ -28,7 +28,6 @@ class BookingController
         $data['rewardAmount'] = 20.00;
 
         $searchLocation = $unit->facility->city;
-
         if ($searchLocation) {
             $data['search_results_url'] =  route('searchModule') . '?location=' . urlencode($searchLocation);
         }
@@ -102,20 +101,23 @@ class BookingController
                     return view('pages.confirmation', [
                         'bodyClass' => 'reservation',
                         'unit' => $unit,
-                        'breadcrumb' => $breadcrumb,
+                        'confirmationCode' => $unit->reservationConfirmation->getAccessKey(),
                         'k' => $unit->reservationConfirmation->getAccessKey(),
+                        'breadcrumb' => $breadcrumb,
                     ]);
+
 
             } catch (\Exception $e) {
                 error_log($e);
 
                 $data['errorMessage'] = $e->getMessage();
                 $data['breadcrumb'] = $breadcrumb;
+                $data['metaDescription'] = '';
 
                 return view('pages.reservationError', $data);
             }
         }
-        
+
         public function confirm($data) {
             return view('pages.confirmation', $data);
         }

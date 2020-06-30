@@ -1,0 +1,162 @@
+body.home {
+
+  .popular-facilities {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    padding-bottom: 60px;
+    flex-wrap: wrap;
+
+    .state-description {
+      flex: 0 0 30%;
+      p {
+        color: #7C7C7C;
+        font-size: 16px;
+        line-height: 22px;
+      }
+      @media (max-width: $screen-md) {
+        flex: 0 0 100%;
+      }
+    }
+    .popular-facility {
+        flex: 0 0 32%;
+        max-width: 32%;
+        box-shadow: 0 4px 15px 0 rgba(0,0,0,0.19);
+        border-radius: 3px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width: $screen-md) {
+          flex: 0 0 50%;
+          max-width: 48%;
+          margin-top: 20px;
+        }
+        @media (max-width: $screen-sm) {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .facility-top {
+          display: flex;
+          .image {
+            flex: 0 0 40%;
+            max-width: 40%;
+            padding-left: 16px;
+            padding-top: 10px;
+            .crop {
+              width: 100%;
+              height: 150px;
+              overflow: hidden;
+              img {
+                width: auto;
+                height: 150px;
+              }
+            }
+          }
+          .details {
+            flex: 0 0 60%;
+            padding-left: 10px;
+            padding-right: 16px;
+            .details-wrapper {
+              display: flex;
+              flex-direction: column;
+            }
+            .reviews {
+              padding: unset;
+            }
+            .title {
+              font-size: 14px;
+              font-weight: 600;
+              color: #3A98FC;
+              line-height: 19px;
+            }
+            .address, .distance {
+              font-size: 14px;
+              font-weight: 400;
+              color: #242740;
+              line-height: 19px;
+            }
+          }
+        }
+        .action-row {
+          display: flex;
+          justify-content: space-around;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          border-top: 1px solid #F1F1F1;
+          border-bottom: 1px solid #F1F1F1;
+          margin-left: 16px;
+          margin-right: 16px;
+          margin-top: 22px;
+          .action-item {
+            flex: 0 0 auto;
+            font-size: 14px;
+            line-height: 19px;
+            color: #3A98FC;
+            .call-now {
+              cursor: pointer;
+            }
+          }
+        }
+        .stack {
+          ul {
+            padding-left: unset;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+            li {
+              list-style: none;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              font-weight: 600;
+              color: #3A98FC;
+              border-bottom: 1px solid #F1F1F1;
+              padding-top: 8px;
+              padding-bottom: 8px;
+              margin-left: 16px;
+              margin-right: 16px;
+              div {
+                flex: 0 0 50%;
+              }
+              .price {
+                text-align: right;
+                float: right;
+              }
+              .promotion {
+                display: none;
+              }
+            }
+          }
+        }
+        .more {
+          display: flex;
+          justify-content: center;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          a {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 19px;
+            box-shadow: 0 2px 17px 0 rgba(0,0,0,0.15);
+            background: linear-gradient(180deg, #12B3B9 0%, #11A5AB 100%);
+            border-radius: 4px;
+            border: unset;
+            &:hover {
+              background: linear-gradient(to bottom, #139da2 0%, #11878b 100%);
+            }
+          }
+        }
+    }
+  }
+  .state-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 27px;
+
+  }
+}

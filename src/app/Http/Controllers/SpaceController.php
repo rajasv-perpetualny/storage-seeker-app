@@ -15,7 +15,7 @@ use \App\Models\Calendar;
 
 class SpaceController extends Controller
 {
-    public function getDetails(Unit $unit)
+   public function getDetails(Unit $unit, $state = null, $city = null, $facilityName, $facilityId)
     {
         $reviews = Container::getInstance()->makeWith(\App\Models\Reviews::class,[
            'facilityId' => $unit->facility->id
@@ -53,6 +53,22 @@ class SpaceController extends Controller
             'latitude' => $unit->facility->latitude,
             'longitude' => $unit->facility->longitude,
             'calendar' => new Calendar($unit->facility->officeHours),
+            'url' => '/self-storage/'.strtoupper($unit->facility->state).'/'.str_slug(strtolower($unit->facility->city), '-').'/'.str_slug(strtolower($unit->facility->name), '-').'/'.$unit->facility->id.'/unit/'.$unit->rawUnit->space->spaceId,
+            'metaDescription' => ''
+
         ]);
+    }
+    public function getDetailsLegacy(Unit $unit)
+    {
+
+      $searchData = [
+        'state' => strtoupper($unit->facility->state),
+        'city' => strtolower(str_slug($unit->facility->city, "-")),
+        'facilityName' => strtolower(str_slug($unit->facility->name, "-")),
+        'facilityId' => $unit->facility->id,
+        'unitId' => $unit->rawUnit->space->spaceId,
+      ];
+      return redirect()->route('unitModule', $searchData, 302);
+
     }
 }

@@ -43,5 +43,5 @@
     </main>
 @endsection
 @section('scripts')
-    @include('includes.googlempasIncludes')
+    @include('includes.googlemapsIncludes')
 @endsection

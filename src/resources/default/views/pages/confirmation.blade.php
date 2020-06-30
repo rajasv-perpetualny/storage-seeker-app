@@ -126,3 +126,8 @@
         <div class="now-available"><p>The unit is available now. You can move in or sign paperwork in advance.</p></div>
     </div>
 @endsection
+@section('tracking')
+    @include('includes.conversionCode')
+@endsection
+@section('scripts')
+@endsection

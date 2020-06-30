@@ -337,6 +337,8 @@ body.reservation {
               @extend .btn-primary;
               width: 100%;
               line-height: 50px;
+              background: linear-gradient(180deg, #12B3B9 0%, #11A5AB 100%);
+              border: unset;
             }
 
             a.view-all-supplies{

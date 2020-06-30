@@ -10,7 +10,7 @@
             </div>
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="/size-guide">Storage Size Guide</a></li>
+                    <li><a href="/size-guides">Storage Size Guide</a></li>
                     <li><a href="http://blog.storageseeker.com">Blog</a></li>
                 </ul>
             </nav>

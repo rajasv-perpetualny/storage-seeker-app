@@ -9,7 +9,7 @@
             <div class="facility-wrapper">
                 <div class="image">
                     <div class="crop">
-                        <a href="{{config('host')}}/facility/{{$item->facilityId}}" >
+                        <a href="{{config('host')}}/self-storage/{{$pageData->state}}/{{str_slug(strtolower($city), "-")}}/{{str_slug($item->name, "-")}}/{{$item->facilityId}}" >
                             @if($item->image)
                                 <img src="{{$item->image}}" alt="{{$item->name}}" />
                             @else
@@ -20,7 +20,7 @@
                 </div>
                 <div class="details">
                     <div class="details-wrapper">
-                        <h2 class="title"><a id="facility-title-{{$item->facilityId}}" href="{{config('host')}}/facility/{{$item->facilityId}}">{{$item->name}}</a></h2>
+                        <h3 class="title"><a id="facility-title-{{$item->facilityId}}" href="{{config('host')}}/self-storage/{{$pageData->state}}/{{str_slug(strtolower($city), "-")}}/{{str_slug($item->name, "-")}}/{{$item->facilityId}}">{{$item->name}}</a></h3>
                         <p class="address">{{ $item->address }}, {{ $item->city }}, {{ $item->state }}, {{ $item->zip }}</p>
                         <p class="distance">{{ $item->distance }} miles away</p>
                         <p class="info-links">
@@ -46,9 +46,9 @@
                         <p class="reviews"
                            data-average="{{$item->averageRating}}"
                            data-number="{{$item->numRatings}}" >
-                            <a href="{{config('host')}}/facility/{{$item->facilityId}}#reviews"> See all {{$item->numRatings}} reviews </a></p>
+                            <a href="{{config('host')}}/self-storage/{{$pageData->state}}/{{str_slug(strtolower($city), "-")}}/{{str_slug($item->name, "-")}}/{{$item->facilityId}}#reviews"> See all {{$item->numRatings}} reviews </a></p>
                         @else
-                        Be the first to <a href="{{config('host')}}/facility/{{$item->facilityId}}#reviews"> leave a review</a>
+                        Be the first to <a href="{{config('host')}}/self-storage/{{$pageData->state}}/{{str_slug(strtolower($city), "-")}}/{{str_slug($item->name, "-")}}/{{$item->facilityId}}#reviews"> leave a review</a>
                         @endif
                     </div>
                 </div>
@@ -61,17 +61,25 @@ $spaces = [
     'largeUnit' => is_object($item->largeUnit) ? $item->largeUnit->id : 0
 ];
 
+$url = config('host').'/self-storage/'.$pageData->state.'/'.str_slug(strtolower($city), "-").'/'.str_slug($item->name, "-").'/'.$item->facilityId;
+
 ?>
-                        @includeWhen(!in_array($item->primaryUnit->id, $spaces), 'includes.stackedUnit', ['unit' => $item->primaryUnit, 'class' => 'recommended', 'maxReservableDate' => $item->primaryUnitReservableDate])
-                        @include('includes.stackedUnit', ['unit' => $item->smallUnit, 'class' => "5' x 5'", 'maxReservableDate' => $item->smallUnitReservableDate])
-                        @include('includes.stackedUnit', ['unit' => $item->mediumUnit, 'class' => "5' x 10'", 'maxReservableDate' => $item->mediumUnitReservableDate])
-                        @include('includes.stackedUnit', ['unit' => $item->largeUnit, 'class' => "10' x 10'", 'maxReservableDate' => $item->largeUnitReservableDate])
+                        @includeWhen(!in_array($item->primaryUnit->id, $spaces), 'includes.stackedUnit', ['unit' => $item->primaryUnit, 'class' => 'recommended', 'maxReservableDate' => $item->primaryUnitReservableDate, 'url' => $url])
+                        @if($spaces['smallUnit'] != 0)
+                        @include('includes.stackedUnit', ['unit' => $item->smallUnit, 'class' => "5' x 5'", 'maxReservableDate' => $item->smallUnitReservableDate, 'url' => $url])
+                        @endif
+                        @if($spaces['mediumUnit'] != 0)
+                        @include('includes.stackedUnit', ['unit' => $item->mediumUnit, 'class' => "5' x 10'", 'maxReservableDate' => $item->mediumUnitReservableDate, 'url' => $url])
+                        @endif
+                        @if($spaces['largeUnit'] != 0)
+                        @include('includes.stackedUnit', ['unit' => $item->largeUnit, 'class' => "10' x 10'", 'maxReservableDate' => $item->largeUnitReservableDate, 'url' => $url])
+                        @endif
                     </ul>
                 </div>
             </div>
-            <p class="more">
-                <a href="{{config('host')}}/facility/{{$item->facilityId}}">View more units »</a>
-            </p>
+            <div class="view-more-btn btn btn-primary">
+                <a href="{{config('host')}}/self-storage/{{$pageData->state}}/{{str_slug(strtolower($city), "-")}}/{{str_slug($item->name, "-")}}/{{$item->facilityId}}">View More Units</a>
+            </div>
 
         </li>
 @endforeach
